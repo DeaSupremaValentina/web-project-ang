@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web-project-ang';
+  showSidebar = false;
+
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
+  }
 }
