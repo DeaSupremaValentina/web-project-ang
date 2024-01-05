@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .left-menu,
+  .center-bar {
+    margin: 0; /* Rimuovi eventuali margini predefiniti */
+  }
+    
+
+  .logo {
+    margin-left: 10px; /* Puoi regolare il valore a tuo piacimento */
+  }
