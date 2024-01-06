@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import auth from 'firebase/compat/app';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,17 +11,21 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username = new FormControl();
-  password = new FormControl();
 
-  constructor(private auth:AuthService){}
+  constructor(private afAuth: AngularFireAuth) { }
 
-  doLogin(){
-    var user = this.username.value;
-    var pass = this.password.value;    
-
-    this.auth.login(user, pass);
+  login() {
+    const googleAuthProvider = new auth.auth.GoogleAuthProvider();
+    this.afAuth.signInWithPopup(googleAuthProvider)
+      .then((result) => {
+        console.log(result.user);
+        // Puoi gestire l'utente autenticato qui
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
-
-
 }
+
+
+
