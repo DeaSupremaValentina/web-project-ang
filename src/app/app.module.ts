@@ -11,6 +11,18 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { getApp, initializeApp } from 'firebase/app';
+import { provideFirebaseApp } from '@angular/fire/app';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
+  authDomain: "webapplication-45662.firebaseapp.com",
+  projectId: "webapplication-45662",
+  storageBucket: "webapplication-45662.appspot.com",
+  messagingSenderId: "1038539550360",
+  appId: "1:1038539550360:web:c1eef24e5a43817d7eaaed",
+  measurementId: "G-5MZ1W6YDMZ"
+};
 
 
 @NgModule({
@@ -24,8 +36,10 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    
 
   ],
   providers: [
