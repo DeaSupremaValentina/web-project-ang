@@ -25,7 +25,7 @@ userLogged: boolean = false;
       this.afAuth.signInWithPopup(this.googleAuthProvider)
       
       .then((result) => {
-        console.log('result.user');
+        console.log(result.user);
         // Puoi gestire l'utente autenticato qui
       })
       .catch((error) => {
@@ -41,7 +41,7 @@ userLogged: boolean = false;
     
     this.afAuth.signOut();
     const user = this.afAuth.currentUser;
-    console.log('user disconnesso');
+    console.log('user disconnesso', user);
     this.userLogged = false;
 
   }
