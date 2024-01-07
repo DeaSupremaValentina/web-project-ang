@@ -27,7 +27,7 @@
     
     <div class="right-login">
       <!-- Contenuto del login a destra -->
-      <button class="login-button" (click)="loginWithGoogle()">Login</button>
+      <button class="login-button" (click)="getUserLog() ? logout() : loginWithGoogle()">{{ getUserLog() ? 'Logout' : 'Login' }}</button>
     </div>
   </div>
 </header>
