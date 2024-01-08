@@ -50,7 +50,8 @@
 }
 
 .center-bar {
-  margin-left: auto;  
+  justify-items: center;
+  display: flex;  
 }
 
 
