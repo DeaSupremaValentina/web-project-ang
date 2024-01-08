@@ -1,20 +1,26 @@
 <header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-DH/zg10JBb+j4v4eGvBgoAcgA/r6UjeP/iq1zK2bNDF+xrtm4wq3wN1P5FA3HpG4bb8X4W/mzFLVCYETXGtysQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <div class="navbar">
     <div class="left-menu">
       <!-- Contenuto del menu a sinistra -->
-      <button (click)="toggleSidebar()">Menu</button>
-      <img src="path/to/logo.png" alt="Logo" class="logo">
-      <div class="sidebar" *ngIf="isSidebarOpen">
-        <ul>
-          <li><a routerLink="/area_personale">Area Personale</a></li>
-          <li><a routerLink="/primi_piatti">Primi Piatti</a></li>
-          <li><a routerLink="/secondi_piatti">Secondi Piatti</a></li>
-          <li><a routerLink="/contorni">Contorni</a></li>
-          <li><a routerLink="/dolci">Dolci</a></li>
-        </ul>
-      </div>
+      <ul class="menu-list">
+          <li>
+              <a href="#" style="pointer-events: none; cursor: default;"><i class="fas fa-bars"></i>Menu</a>
+              <ul class="submenu">
+                  <li><a routerLink="/area_personale">Area Personale</a></li>
+                  <li><a routerLink="/primi_piatti">Primi Piatti</a></li>
+                  <li><a routerLink="/secondi_piatti">Secondi Piatti</a></li>
+                  <li><a routerLink="/contorni">Contorni</a></li>
+                  <li><a routerLink="/dolci">Dolci</a></li>
+              </ul>
+          </li>
+      </ul>
       
-    </div>
+  </div>
+
+  <div class="logo"><img src="path/to/logo.png" alt="Logo"></div>
+
     
     <div class="center-bar">
       <!-- Contenuto della barra centrale -->
