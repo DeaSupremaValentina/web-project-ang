@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { getApp, initializeApp } from 'firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
+import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -30,6 +31,7 @@ const firebaseConfig = {
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
+    AreaPersonaleComponent,
     
   ],
   imports: [
