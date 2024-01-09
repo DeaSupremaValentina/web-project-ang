@@ -6,7 +6,7 @@ import auth from 'firebase/compat/app';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: '../app.component.css'
 })
 export class HeaderComponent {
 isSidebarOpen: boolean = false;

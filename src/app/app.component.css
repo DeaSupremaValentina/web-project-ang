@@ -1,0 +1,125 @@
+/* Stili per il menu */
+.navbar {
+display: flex;
+align-items: center;
+background-color: #f0e985; /* Aggiungi il colore di sfondo desiderato */
+padding: 10px;
+}
+
+.menu-list {
+list-style-type: none;
+margin: 0;
+padding: 0;
+margin-right: 5px;
+background-color: #ff8c69;
+}
+
+
+.menu-list li {
+display: inline-block;
+margin-right: 0px; /* Regola la distanza tra il menu e il logo */
+}
+
+.submenu {
+display: none;
+position: absolute;
+background-color: #ff8c69; /* Aggiungi il colore di sfondo desiderato per il menu a discesa */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+z-index: 1;
+}
+
+.menu-list li:hover .submenu {
+display: block;
+}
+
+/* Stili per gli elementi del menu */
+.menu-list a {
+text-decoration: none;
+display: block;
+color: black;
+padding: 20px 30px;
+font-size: 17px;
+}
+
+.menu-list li li a {
+padding: 10px 20px;
+}
+
+/* Stili per il logo */
+.logo {
+max-width: 100px; /* Regola la larghezza massima del logo */
+margin-right: auto;
+}
+
+.center-bar {
+justify-items: center;
+display: flex;  
+color: black;
+}
+
+
+/* Stili per la barra di ricerca */
+.search-bar {
+display: flex;
+align-items: center;
+
+}
+
+.search-bar input {
+padding: 10px;
+margin-right: 10px;
+width: 500px;
+background-color: #ff8c699e;
+}
+
+.search-bar button {
+padding: 10px;
+background-color: #ff8c69; /* Aggiungi il colore desiderato per il bottone di ricerca */
+color: black; /* Aggiungi il colore desiderato per il testo del bottone di ricerca */
+cursor: pointer;
+border: 1px solid black;
+}
+
+/* Stili per il login */
+.right-login {
+display: flex;
+align-items: center;
+margin-left: auto;
+}
+
+.login-button {
+padding: 10px;
+background-color: #ff8c69; /* Aggiungi il colore desiderato per il bottone di login/logout */
+color: black; /* Aggiungi il colore desiderato per il testo del bottone di login/logout */
+border: 1px solid black;
+cursor: pointer;
+}
+
+
+.body{
+    display: flex;
+    background-color: blue; /*non si vede e devo capire perché*/
+    
+}
+
+.first-row, .second-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  
+}
+
+.square1, .square2, .square3, .square4 {
+  width: 50%;
+  height: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
