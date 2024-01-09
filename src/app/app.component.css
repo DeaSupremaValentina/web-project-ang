@@ -96,9 +96,9 @@ cursor: pointer;
 }
 
 
-.body{
-    display: flex;
-    background-color: blue; /*non si vede e devo capire perché*/
+body{
+    
+    background-color: #ffff; /*non si vede e devo capire perché*/
     
 }
 

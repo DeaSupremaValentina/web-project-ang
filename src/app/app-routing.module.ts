@@ -4,7 +4,8 @@ import { HomePageComponent } from './home-page/home-page.component';  // Aggiorn
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },  // Aggiorna il nome del componente
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: 'home', component: HomePageComponent },  // Aggiorna il nome del componente
   { path: 'area-personale', component: AreaPersonaleComponent },
 ];
 
