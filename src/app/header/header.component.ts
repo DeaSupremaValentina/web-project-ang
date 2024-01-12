@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import auth from 'firebase/compat/app';
+import { HttpClient } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
+const backendUrl = 'http://localhost:8080';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +15,11 @@ export class HeaderComponent {
 isSidebarOpen: boolean = false;
 userLogged: boolean = false;
 
-
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth, private http: HttpClient) { }
   googleAuthProvider = new auth.auth.GoogleAuthProvider();
 
   loginWithGoogle() {
@@ -26,7 +28,7 @@ userLogged: boolean = false;
       
       .then((result) => {
         console.log(result.user);
-        // Puoi gestire l'utente autenticato qui
+        this.sendUserToBackend(result.user);
       })
       .catch((error) => {
         console.error(error);
@@ -48,6 +50,21 @@ userLogged: boolean = false;
 
   getUserLog() {
     return this.userLogged;
+  }
+
+    showLoginAlert() {
+      alert("Effettua il login prima di accedere all'Area Personale.");
+  }
+
+  sendUserToBackend(user: any) {
+    // Invia i dati dell'utente al tuo backend usando una richiesta HTTP
+    this.http.post(backendUrl, user)
+    .pipe(
+      catchError((error) => {
+          console.error('Errore durante l\'invio dell\'utente al backend', error);
+          return throwError(error);
+      })
+  )
   }
 
 }
