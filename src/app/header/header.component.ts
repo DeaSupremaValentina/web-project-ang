@@ -57,7 +57,6 @@ userLogged: boolean = false;
   }
 
   sendUserToBackend(user: any) {
-    // Invia i dati dell'utente al tuo backend usando una richiesta HTTP
     this.http.post(backendUrl, user)
     .pipe(
       catchError((error) => {

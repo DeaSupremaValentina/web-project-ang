@@ -2,48 +2,56 @@
 .navbar {
 display: flex;
 align-items: center;
-background-color: #f0e985; /* Aggiungi il colore di sfondo desiderato */
+background-color: #a3f085; /* Aggiungi il colore di sfondo desiderato */
 padding: 10px;
 }
 
 .menu-list {
-list-style-type: none;
-margin: 0;
-padding: 0;
-margin-right: 5px;
-background-color: #ff8c69;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+  background-color: #ff8c69;
 }
 
-
 .menu-list li {
-display: inline-block;
-margin-right: 0px; /* Regola la distanza tra il menu e il logo */
+  display: inline-block;
+  margin-right: 0px;
+  position: relative; /* Aggiungi questa linea per rendere relativo l'elemento padre */
 }
 
 .submenu {
-display: none;
-position: absolute;
-background-color: #ff8c69; /* Aggiungi il colore di sfondo desiderato per il menu a discesa */
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #ff8c69;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  top: 100%; /* Aggiungi questa linea per posizionare il menu a discesa sotto l'elemento padre */
+  white-space: nowrap; /* Evita il riavvolgimento del testo nel menu a discesa */
 }
 
 .menu-list li:hover .submenu {
-display: block;
+  display: flex;
+  flex-direction: row; /* Visualizza gli elementi del sottomenu in orizzontale */
 }
 
 /* Stili per gli elementi del menu */
 .menu-list a {
-text-decoration: none;
-display: block;
-color: black;
-padding: 20px 30px;
-font-size: 17px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  padding: 20px 30px;
+  font-size: 17px;
+}
+
+.menu-list li li {
+  display: inline-block; /* Imposta gli elementi del sottomenu in orizzontale */
 }
 
 .menu-list li li a {
-padding: 10px 20px;
+  padding: 10px 20px;
 }
+
 
 /* Stili per il logo */
 .logo {
@@ -100,6 +108,12 @@ cursor: pointer;
   background-color:blanchedalmond;
 }
 
+.row, .col-sm-6, .col-sm-3{
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
 .first-row, .second-row {
   display: flex;
   flex-direction: row;
@@ -153,8 +167,9 @@ cursor: pointer;
 }
 
 footer{
-  background: #f0e985;
+  background: #acf085;
   padding-top: 10px;
+  
 }
 
 .contact-info{
