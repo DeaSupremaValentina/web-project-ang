@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { getApp, initializeApp } from 'firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
+import { RicettaComponent } from './ricetta/ricetta.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -32,6 +33,7 @@ const firebaseConfig = {
     HeaderComponent,
     FooterComponent,
     AreaPersonaleComponent,
+    RicettaComponent,
     
   ],
   imports: [
