@@ -6,4 +6,5 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
+  //forse manca il metodo getToken()
 }
