@@ -1,0 +1,65 @@
+<form [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
+    <div class="form-group">
+      <label for="nomeRicetta">*Nome Ricetta:</label>
+      <input type="text" class="form-control" id="nomeRicetta" formControlName="nomeRicetta">
+    </div>
+    
+    <div class="form-group">
+      <label for="categoria">*Categoria:</label>
+      <input type="text" class="form-control" id="categoria" formControlName="categoria">
+    </div>
+    
+    <div class="form-group">
+      <label for="descrizione">*Descrizione:</label>
+      <textarea class="form-control" id="descrizione" formControlName="descrizione"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="ingredienti">*Ingredienti:</label>
+      <textarea class="form-control" id="ingredienti" formControlName="ingredienti"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="procedimento">*Procedimento:</label>
+      <textarea class="form-control" id="procedimento" formControlName="procedimento"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="tempoPreparazione">Tempo di Preparazione:</label>
+      <input type="text" class="form-control" id="tempoPreparazione" formControlName="tempoPreparazione">
+    </div>
+    
+    <div class="form-group">
+      <label for="numeroPersone">Numero Persone:</label>
+      <input type="text" class="form-control" id="numeroPersone" formControlName="numeroPersone">
+    </div>
+    
+    <div class="form-group">
+      <label for="difficolta">Difficoltà:</label>
+      <input type="text" class="form-control" id="difficolta" formControlName="difficolta">
+    </div>
+    
+    <div class="form-group">
+      <label for="costo">Costo:</label>
+      <input type="text" class="form-control" id="costo" formControlName="costo">
+    </div>
+    
+    <div class="form-group">
+      <label for="linkYoutube">Link YouTube:</label>
+      <input type="text" class="form-control" id="linkYoutube" formControlName="linkYoutube">
+    </div>
+    
+    <div class="form-group">
+      <label for="linkSpotify">Link Spotify:</label>
+      <input type="text" class="form-control" id="linkSpotify" formControlName="linkSpotify">
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="autore">Autore:</label>
+      <input type="text" class="form-control" id="autore" formControlName="autore">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Invia Ricetta</button>
+  </form>
+  
