@@ -11,6 +11,6 @@ export class RicetteServiceService {
 
   constructor(private http:HttpClient,private auth:AuthService) {}
   dammiInfoRicette():Observable<Ricetta[]>{
-    return this.http.get<Ricetta[]>(this.backendUrl+"/TutteLeRicette");
+    return this.http.get<Ricetta[]>(this.backendUrl+"/tutteLeRicette");
   }
 }
