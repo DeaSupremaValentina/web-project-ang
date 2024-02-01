@@ -3,6 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AngularFireModule } from '@angular/fire/compat'; 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { getApp, initializeApp } from 'firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
+import { FormNuovaRicettaComponent } from './form-nuova-ricetta/form-nuova-ricetta.component';
 import { RicetteComponent } from './ricette/ricette.component';
 
 const firebaseConfig = {
@@ -34,6 +36,8 @@ const firebaseConfig = {
     FooterComponent,
     AreaPersonaleComponent,
     RicetteComponent,
+    FormNuovaRicettaComponent,
+    
     
   ],
   imports: [
@@ -43,6 +47,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
     HttpClientModule,
+    ReactiveFormsModule,
 
   ],
   providers: [

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import auth from 'firebase/compat/app';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { Utente } from '../models/utente.model';
 
 const backendUrl = 'http://localhost:8080';
 
@@ -24,15 +25,18 @@ userLogged: boolean = false;
 
   loginWithGoogle() {
       
-      this.afAuth.signInWithPopup(this.googleAuthProvider)
-      
-      .then((result) => {
-        console.log(result.user);
-        this.sendUserToBackend(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    this.afAuth.signInWithPopup(this.googleAuthProvider)
+    .then((result) => {
+      console.log(result.user);
+      if (result.user) {
+        result.user.getIdToken().then((idToken) => {
+          this.sendUserToBackend(idToken, result.user);
+        });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
       console.log('userloggato');
       this.userLogged = true;
   
@@ -56,8 +60,16 @@ userLogged: boolean = false;
       alert("Effettua il login prima di accedere all'Area Personale.");
   }
 
-  sendUserToBackend(user: any) {
-    this.http.post(backendUrl, user)
+  sendUserToBackend(idToken: string, user: any) {
+    const utente: Utente = new Utente(
+      user.uid,
+      'utente',  // o 'admin' a seconda del tuo caso
+      user.email,
+      user.displayName
+    );
+    const userData= new FormData();
+    userData.append('utente', JSON.stringify(utente));
+    this.http.post<Utente>(backendUrl +  '/login', userData)
     .pipe(
       catchError((error) => {
           console.error('Errore durante l\'invio dell\'utente al backend', error);
