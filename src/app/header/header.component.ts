@@ -29,16 +29,16 @@ userLogged: boolean = false;
     .then((result) => {
       console.log(result.user);
       if (result.user) {
-        result.user.getIdToken().then((idToken) => {
-          this.sendUserToBackend(idToken, result.user);
-        });
+          this.sendUserToBackend(result.user);
+          this.userLogged = true;
+        
       }
     })
     .catch((error) => {
       console.error(error);
     });
       console.log('userloggato');
-      this.userLogged = true;
+      
   
     
   }
@@ -60,22 +60,25 @@ userLogged: boolean = false;
       alert("Effettua il login prima di accedere all'Area Personale.");
   }
 
-  sendUserToBackend(idToken: string, user: any) {
+  sendUserToBackend(user: any) {
     const utente: Utente = new Utente(
       user.uid,
       'utente',  // o 'admin' a seconda del tuo caso
       user.email,
       user.displayName
     );
-    const userData= new FormData();
-    userData.append('utente', JSON.stringify(utente));
-    this.http.post<Utente>(backendUrl +  '/login', userData)
-    .pipe(
-      catchError((error) => {
+    
+
+    this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
+      (data: any) => {
+          console.log('Successo durante l\'invio dell\'utente al backend', data);
+      },
+      (error:any) => {
           console.error('Errore durante l\'invio dell\'utente al backend', error);
-          return throwError(error);
-      })
-  )
+      }
+  );
+}
+  
   }
 
-}
+

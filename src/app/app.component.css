@@ -203,8 +203,24 @@ footer{
 .personal-page-down button{
   background-color: #ff8c69;
   font-size: 15px;
+  color: black;
 }
 
 .personal-page-up a{
   margin-right: 100px;
+}
+
+.form-button{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.form-button button{
+  background-color: #ff8c69;
+  font-size: 15px;
+  color: black;
+  
 }

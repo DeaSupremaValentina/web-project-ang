@@ -5,6 +5,7 @@ import { AreaPersonaleComponent } from './area-personale/area-personale.componen
 import { RicetteComponent } from './ricette/ricette.component';
 import { RicetteScritteDaTeComponent } from './ricette-scritte-da-te/ricette-scritte-da-te.component';
 import { DettagliRicettaComponent } from './dettagli-ricetta/dettagli-ricetta.component';
+import { FormNuovaRicettaComponent } from './form-nuova-ricetta/form-nuova-ricetta.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'ricette', component: RicetteComponent },
   { path: 'ricette-scritte-da-te', component: RicetteScritteDaTeComponent },
   { path: 'ricette/:nomeRicetta', component: DettagliRicettaComponent },
+  { path: 'form-nuova-ricetta', component: FormNuovaRicettaComponent },
 ];
 
 @NgModule({
