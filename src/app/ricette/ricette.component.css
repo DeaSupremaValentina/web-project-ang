@@ -13,3 +13,9 @@
 .container {
     padding: 2px 16px;
 }
+
+#immagine-base64 {
+    width: 256px;
+    height: auto;
+    float: left;
+}
