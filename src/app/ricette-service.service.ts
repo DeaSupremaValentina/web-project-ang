@@ -13,4 +13,13 @@ export class RicetteServiceService {
   dammiInfoRicette():Observable<Ricetta[]>{
     return this.http.get<Ricetta[]>(this.backendUrl+"/tutteLeRicette");
   }
+
+  dammiRicetteScritteDaUtente():Observable<Ricetta[]>{
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteScritteDaUtente");
+  }
+
+  getRicettaByNome(nomeRicetta: string): Observable<Ricetta> {
+    const url = `${this.backendUrl}/ricette/${nomeRicetta}`;
+    return this.http.get<Ricetta>(url);
+  }
 }

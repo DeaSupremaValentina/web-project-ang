@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Ricette scritte da me</h2>
+    <div class="card" *ngFor="let ricetta of mieRicette" (click)="handleCardClick(ricetta)">
+      <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta.pathImmagine }}" alt="{{ ricetta.nomeRicetta }}">
+      <div class="container">
+        <h4><b>{{ ricetta.nomeRicetta }}</b></h4>
+        <p>{{ ricetta.descrizione }}</p>
+      </div>
+    </div>
+  </div>

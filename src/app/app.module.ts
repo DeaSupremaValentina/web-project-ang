@@ -16,6 +16,8 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 import { FormNuovaRicettaComponent } from './form-nuova-ricetta/form-nuova-ricetta.component';
 import { RicetteComponent } from './ricette/ricette.component';
+import { RicetteScritteDaTeComponent } from './ricette-scritte-da-te/ricette-scritte-da-te.component';
+import { DettagliRicettaComponent } from './dettagli-ricetta/dettagli-ricetta.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -37,6 +39,8 @@ const firebaseConfig = {
     AreaPersonaleComponent,
     RicetteComponent,
     FormNuovaRicettaComponent,
+    RicetteScritteDaTeComponent,
+    DettagliRicettaComponent,
     
     
   ],
