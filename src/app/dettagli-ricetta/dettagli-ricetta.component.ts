@@ -1,18 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RicetteServiceService } from '../ricette-service.service';
+import { Ricetta } from '../model/ricetta';
+
 @Component({
   selector: 'app-dettagli-ricetta',
   templateUrl: './dettagli-ricetta.component.html',
-  styleUrl: './dettagli-ricetta.component.css'
+  styleUrls: ['./dettagli-ricetta.component.css']
 })
-export class DettagliRicettaComponent {
+export class DettagliRicettaComponent implements OnInit {
+  idRicetta: any;
+  ricetta: Ricetta | undefined;
 
-  constructor(private route: ActivatedRoute) {}
-  //DA SISTEMARE IN MODO CHE PRENDA IL NOME DELLA RICETTA
+  constructor(
+    private route: ActivatedRoute,
+    private ricetteService: RicetteServiceService,
+  ) {}
+
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const nomeRicetta = params['nomeRicetta'];
-      console.log(nomeRicetta);
+      this.idRicetta = params['id'];
+      this.loadRicettaDetails();
     });
+  }
+
+  loadRicettaDetails() {
+    this.ricetteService.getRicettaByID(this.idRicetta).subscribe(
+      (data: Ricetta) => {
+        this.ricetta = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

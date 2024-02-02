@@ -1,1 +1,24 @@
-<p>dettagli-ricetta works!</p>
+<div class="container">
+    <h2>{{ ricetta?.nomeRicetta }}</h2>
+    <div class="card">
+        <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta?.pathImmagine }}" alt="{{ ricetta?.nomeRicetta }}">
+        <div class="container">
+        <h4><b>{{ ricetta?.nomeRicetta }}</b></h4>
+        <P>Autore: {{ ricetta?.autore }}</P>
+        <p>youtube</p>
+        <p>spotify</p>
+        <p>Categoria: {{ ricetta?.categoria }}</p>
+        <p>#{{ ricetta?.tag1 }}, #{{ ricetta?.tag2 }}</p>
+        <p>Numero di persone: {{ ricetta?.numeroPersone }}</p>
+        <p>Tempo: {{ ricetta?.tempoPreparazione }}</p>
+        <p>Difficoltà: {{ ricetta?.difficolta }}</p>
+        <p>Costo: {{ ricetta?.costo }}</p>
+        <br>
+        <p id="descr">{{ ricetta?.descrizione }}</p>
+        <p>{{ ricetta?.ingredienti }}</p>
+        <p id="proc">{{ ricetta?.procedimento }}</p>
+        <p>recensioni</p>
+        <p>commenti</p>
+        </div>
+    </div> 
+</div>
