@@ -18,8 +18,8 @@ export class RicetteServiceService {
     return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteScritteDaUtente");
   }
 
-  getRicettaByNome(nomeRicetta: string): Observable<Ricetta> {
-    const url = `${this.backendUrl}/ricette/${nomeRicetta}`;
+  getRicettaByID(id: number): Observable<Ricetta> {
+    const url = `${this.backendUrl}/ricette_id/${id}`;
     return this.http.get<Ricetta>(url);
   }
 }

@@ -1,1 +1,12 @@
-<p>dettagli-ricetta works!</p>
+<div class="container">
+    <h2>{{ ricetta?.nomeRicetta }}</h2>
+    <div class="card">
+        <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta?.pathImmagine }}" alt="{{ ricetta?.nomeRicetta }}">
+        <div class="container">
+        <h4><b>{{ ricetta?.nomeRicetta }}</b></h4>
+        <p>{{ ricetta?.descrizione }}</p>
+        <p>{{ ricetta?.ingredienti }}</p>
+        <p>{{ ricetta?.procedimento }}</p>
+        </div>
+    </div> 
+</div>

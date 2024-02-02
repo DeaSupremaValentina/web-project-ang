@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'area-personale', component: AreaPersonaleComponent },
   { path: 'ricette', component: RicetteComponent },
   { path: 'ricette-scritte-da-te', component: RicetteScritteDaTeComponent },
-  { path: 'ricette/:codice', component: DettagliRicettaComponent },
+  { path: 'ricette_id/:id', component: DettagliRicettaComponent },
 ];
 
 @NgModule({

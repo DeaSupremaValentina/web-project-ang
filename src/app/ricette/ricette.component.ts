@@ -16,6 +16,6 @@ export class RicetteComponent {
     });
   }
   handleCardClick(ricetta: Ricetta) {
-    this.router.navigate(['/ricette', ricetta.codice]);
+    this.router.navigate(['/ricette_id', ricetta.codice]);
   }
 }
