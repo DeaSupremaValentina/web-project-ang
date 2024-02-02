@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import auth from 'firebase/compat/app';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
-import { Utente } from '../models/utente.model';
+import { Utente } from '../model/utente.model';
 
 const backendUrl = 'http://localhost:8080';
 
