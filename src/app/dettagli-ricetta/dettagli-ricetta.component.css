@@ -1,7 +1,15 @@
 #immagine-base64 {
-    width: 512px;
+    width: 400px;
     height: auto;
     float: left;
     margin: 10px;
     border-radius: 5px;
+}
+
+#descr {
+    float: left;
+}
+
+#proc {
+    float: left;
 }
