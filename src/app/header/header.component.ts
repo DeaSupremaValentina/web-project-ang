@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import auth from 'firebase/compat/app';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Utente } from '../model/utente.model';
 
@@ -61,15 +61,11 @@ userLogged: boolean = false;
   }
 
   sendUserToBackend(user: any) {
-    const utente: Utente = new Utente(
-      user.uid,
-      'utente',  // o 'admin' a seconda del tuo caso
-      user.email,
-      user.displayName
-    );
+
+    var utente: Utente = {"userCode": user.uid, "tipo": "utente", "email": user.email, "nome": user.displayName};
     
 
-    this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
+    this.http.post<Utente>(backendUrl + '/login', utente, {withCredentials: true}).subscribe(
       (data: any) => {
           console.log('Successo durante l\'invio dell\'utente al backend', data);
       },
