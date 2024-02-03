@@ -63,9 +63,12 @@ userLogged: boolean = false;
   sendUserToBackend(user: any) {
 
     var utente: Utente = {"userCode": user.uid, "tipo": "utente", "email": user.email, "nome": user.displayName};
-    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer', 
+    });
 
-    this.http.post<Utente>(backendUrl + '/login', utente, {withCredentials: true}).subscribe(
+    this.http.post<Utente>(backendUrl + '/login', utente, {headers: headers, withCredentials: true}).subscribe(
       (data: any) => {
           console.log('Successo durante l\'invio dell\'utente al backend', data);
       },
