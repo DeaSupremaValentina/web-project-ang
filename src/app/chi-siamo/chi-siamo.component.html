@@ -1,0 +1,13 @@
+<div th:if="${chiSiamoData}">
+    <h2>Chi Siamo</h2>
+    <p>email: <span th:text="${chiSiamoData.email}"></span></p>
+    <p>Telefono: <span th:text="${chiSiamoData.telefono}"></span></p>
+    <p>Spotify: <span th:text="${chiSiamoData.spotify}"></span></p>
+    <p>Instagram: <span th:text="${chiSiamoData.instagram}"></span></p>
+    <p>Info su di noi: <span th:text="${chiSiamoData.descr}"></span></p>
+    <p>Sede legale: <span th:text="${chiSiamoData.sedeLegale}"></span></p>
+  </div>
+  
+  <div th:if="${not chiSiamoData}">
+    <p>Caricamento dati in corso...</p>
+  </div>
