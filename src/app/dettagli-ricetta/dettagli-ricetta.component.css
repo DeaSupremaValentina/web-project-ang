@@ -25,3 +25,44 @@ pre {
     border: none;
     white-space: pre;
 }
+
+
+#ingr {
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f8dbc3;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 5px solid #e9c2a2; 
+    border-radius:  15px;
+
+}
+
+.destra {
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ffe0c7;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 5px solid #f3caa8; 
+    border-radius:  15px;
+}
+
+#tag {
+    color: #b97344;
+    
+}
+#descr {
+    float: left;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.temporaneo{
+    clear: both;
+    
+}
+
