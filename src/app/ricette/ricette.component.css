@@ -6,6 +6,7 @@
     display: flex;
     padding: 7px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .card:hover {
@@ -17,4 +18,28 @@
     width: 256px;
     height: auto;
     float: left;
+}
+
+.fine-card {
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.categoria {
+    font-size: 14px;
+    color: #471814;
+    background-color: #E6b363;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+}
+
+.nomeRicetta {
+    font-size: 20px;
+    color: #471814;
+    font-weight: bold;
 }
