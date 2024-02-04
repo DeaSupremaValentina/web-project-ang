@@ -18,6 +18,8 @@ import { FormNuovaRicettaComponent } from './form-nuova-ricetta/form-nuova-ricet
 import { RicetteComponent } from './ricette/ricette.component';
 import { RicetteScritteDaTeComponent } from './ricette-scritte-da-te/ricette-scritte-da-te.component';
 import { DettagliRicettaComponent } from './dettagli-ricetta/dettagli-ricetta.component';
+import { RicetteProposteComponent } from './ricette-proposte/ricette-proposte.component';
+import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/dettagli-ricetta-proposta.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -41,6 +43,8 @@ const firebaseConfig = {
     FormNuovaRicettaComponent,
     RicetteScritteDaTeComponent,
     DettagliRicettaComponent,
+    RicetteProposteComponent,
+    DettagliRicettaPropostaComponent,
     
     
   ],

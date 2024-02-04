@@ -4,6 +4,7 @@ import auth from 'firebase/compat/app';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Utente } from '../model/utente.model';
+import firebase from 'firebase/compat/app';
 
 const backendUrl = 'http://localhost:8080';
 
@@ -24,7 +25,6 @@ userLogged: boolean = false;
   googleAuthProvider = new auth.auth.GoogleAuthProvider();
 
   loginWithGoogle() {
-      
     this.afAuth.signInWithPopup(this.googleAuthProvider)
     .then((result) => {
       console.log(result.user);

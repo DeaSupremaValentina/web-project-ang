@@ -6,6 +6,8 @@ import { RicetteComponent } from './ricette/ricette.component';
 import { RicetteScritteDaTeComponent } from './ricette-scritte-da-te/ricette-scritte-da-te.component';
 import { DettagliRicettaComponent } from './dettagli-ricetta/dettagli-ricetta.component';
 import { FormNuovaRicettaComponent } from './form-nuova-ricetta/form-nuova-ricetta.component';
+import { RicetteProposteComponent } from './ricette-proposte/ricette-proposte.component';
+import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/dettagli-ricetta-proposta.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'ricette-scritte-da-te', component: RicetteScritteDaTeComponent },
   { path: 'ricette_id/:id', component: DettagliRicettaComponent },
   { path: 'form-nuova-ricetta', component: FormNuovaRicettaComponent },
+  { path: 'ricette-proposte', component: RicetteProposteComponent },
+  { path: 'ricetteproposte_id/:id', component: DettagliRicettaPropostaComponent },
 ];
 
 @NgModule({

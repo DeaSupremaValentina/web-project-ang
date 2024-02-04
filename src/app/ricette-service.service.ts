@@ -22,4 +22,8 @@ export class RicetteServiceService {
     const url = `${this.backendUrl}/ricette_id/${id}`;
     return this.http.get<Ricetta>(url);
   }
+
+  dammiRicetteProposte():Observable<Ricetta[]>{
+    return this.http.get<Ricetta[]>(this.backendUrl+"/tutteLeRicetteProposte");
+  }
 }
