@@ -77,7 +77,11 @@ userLogged: boolean = false;
       }
   );
 }
-  
+
+  getUser() { 
+    return this.afAuth.currentUser;
   }
+
+}
 
 
