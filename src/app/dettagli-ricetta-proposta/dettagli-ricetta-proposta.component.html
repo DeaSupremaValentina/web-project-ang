@@ -1,1 +1,24 @@
-<p>dettagli-ricetta-proposta works!</p>
+<div class="container">
+    <h2><b>{{ ricetta?.nomeRicetta }}</b></h2>
+    <h5 id="tag"><i>#{{ ricetta?.tag1 }}</i>, <i>#{{ ricetta?.tag2 }}</i></h5>
+    <div class="card">
+        <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta?.pathImmagine }}" alt="{{ ricetta?.nomeRicetta }}">
+        <div class="container">
+            <div class="destra">
+                
+                <p><b>Autore: </b>{{ ricetta?.autore }}</p>
+                <p><b>Categoria: </b>{{ ricetta?.categoria }}</p>
+                <p><b>Numero di persone: </b>{{ ricetta?.numeroPersone }}</p>
+                <p><b>Tempo: </b>{{ ricetta?.tempoPreparazione }}</p>
+                <p><b>Difficoltà: </b>{{ ricetta?.difficolta }}</p>
+                <p><b>Costo: </b>{{ ricetta?.costo }}</p>
+            </div>
+            
+                <p id="descr"><b>Descrizione: </b>{{ ricetta?.descrizione }}</p>
+                <pre id="ingr"><b>Ingredienti: </b><br>{{ ricetta?.ingredienti }}</pre>
+                <pre id="proc"><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</pre>
+            
+        
+        </div>
+    </div> 
+</div>
