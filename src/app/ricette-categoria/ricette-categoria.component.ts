@@ -12,26 +12,22 @@ export class RicetteCategoriaComponent implements OnInit {
   ricette: any;
   categoria!: string;
 
-  constructor(
-    private ricetteService: RicetteServiceService,
-    private router: Router,
-    private route: ActivatedRoute
+constructor(
+  private ricetteService: RicetteServiceService,
+  private router: Router,
+  private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.categoria = params['categoria'];
-      this.caricaRicetteByCategoria(this.categoria);
-    });
-  }
-
-  caricaRicetteByCategoria(categoria: string): void {
-    this.ricetteService.dammiInfoRicetteByCategoria(categoria).subscribe((data) => {
+ngOnInit(): void {
+  this.route.params.subscribe(params => {
+    this.categoria = params['categoria'];
+    this.ricetteService.dammiInfoRicetteByCategoria(this.categoria).subscribe((data) => {
       this.ricette = data;
     });
-  }
+  });
+}
 
-  handleCardClick(ricetta: Ricetta) {
-    this.router.navigate(['/ricette_id', ricetta.codice]);
+handleCardClick(ricetta: Ricetta) {
+  this.router.navigate(['/ricette_id', ricetta.codice]);
   }
 }
