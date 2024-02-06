@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RicetteServiceService } from '../ricette-service.service';
+import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
 import { Router } from '@angular/router';
 
