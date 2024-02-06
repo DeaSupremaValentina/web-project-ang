@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Ricette</h2>
+    <h2>{{ ricette.categoria }}</h2>
       <div class="card" *ngFor="let ricetta of ricette" (click)="handleCardClick(ricetta)">
         <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta.pathImmagine }}" alt="{{ ricetta.nomeRicetta }}">
         <div class="container">
