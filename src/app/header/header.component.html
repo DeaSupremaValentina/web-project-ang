@@ -30,17 +30,19 @@
           <div class="logo"><img src="assets\img\BackgroundEraser_image.png" alt="Logo" style="width: 65px;"></div>
           </div>
   
-          <div class="col-sm-6 col-xs-6">
+          <div class="col-sm-8 col-xs-8">
             <div class="center-bar">
               <!-- Contenuto della barra centrale -->
+              
               <div class="search-bar">
                 <input type="text" placeholder="Cerca...">
                 <button type="button">Cerca</button>
               </div>
+            
             </div>
           </div>
   
-          <div class="col-sm-3 col-xs-3">
+          <div class="col-sm-1 col-xs-1">
             <div class="right-login">
               <!-- Contenuto del login a destra -->
               <button class="login-button" (click)="getUserLog() ? logout() : loginWithGoogle()">{{ getUserLog() ? 'Logout' : 'Login' }}</button>
