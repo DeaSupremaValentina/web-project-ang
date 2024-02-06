@@ -12,7 +12,6 @@ export class RicetteComponent {
   constructor(private ricetteService: RicetteServiceService, private router: Router) {
     this.ricetteService.dammiInfoRicette().subscribe((data) => {
       this.ricette = data;
-      console.log(this.ricette); 
     });
   }
   handleCardClick(ricetta: Ricetta) {

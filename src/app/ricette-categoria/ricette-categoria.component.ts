@@ -32,6 +32,6 @@ export class RicetteCategoriaComponent implements OnInit {
   }
 
   handleCardClick(ricetta: Ricetta) {
-    this.router.navigate(['/ricetta_id', ricetta.codice]);
+    this.router.navigate(['/ricette_id', ricetta.codice]);
   }
 }
