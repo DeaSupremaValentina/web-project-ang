@@ -1,5 +1,7 @@
 <div class="container">
-    <h2>{{ ricette.categoria }}</h2>
+  <ng-container *ngIf="ricette && ricette.length > 0">
+    <h2>{{ ricette[0].categoria }}</h2>
+  </ng-container>
       <div class="card" *ngFor="let ricetta of ricette" (click)="handleCardClick(ricetta)">
         <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta.pathImmagine }}" alt="{{ ricetta.nomeRicetta }}">
         <div class="container">
