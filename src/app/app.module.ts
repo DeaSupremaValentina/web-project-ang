@@ -21,6 +21,7 @@ import { DettagliRicettaComponent } from './dettagli-ricetta/dettagli-ricetta.co
 import { RicetteProposteComponent } from './ricette-proposte/ricette-proposte.component';
 import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/dettagli-ricetta-proposta.component';
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
+import { RicetteCategoriaComponent } from './ricette-categoria/ricette-categoria.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -47,6 +48,7 @@ const firebaseConfig = {
     RicetteProposteComponent,
     DettagliRicettaPropostaComponent,
     ChiSiamoComponent,
+    RicetteCategoriaComponent,
     
     
   ],

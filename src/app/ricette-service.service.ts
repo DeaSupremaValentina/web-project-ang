@@ -26,4 +26,8 @@ export class RicetteServiceService {
   dammiRicetteProposte():Observable<Ricetta[]>{
     return this.http.get<Ricetta[]>(this.backendUrl+"/tutteLeRicetteProposte");
   }
+
+  dammiInfoRicetteByCategoria(categoria: string):Observable<Ricetta[]>{
+    return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_categoria/${categoria}`);
+  }
 }
