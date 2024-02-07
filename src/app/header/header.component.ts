@@ -5,8 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Utente } from '../model/utente.model';
 import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
-const backendUrl = 'http://localhost:8080';
+
 
 @Component({
   selector: 'app-header',
@@ -21,7 +23,7 @@ userLogged: boolean = false;
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  constructor(private afAuth: AngularFireAuth, private http: HttpClient) { }
+  constructor(private afAuth: AngularFireAuth, private http: HttpClient, private router: Router, private authService: AuthService) { }
   googleAuthProvider = new auth.auth.GoogleAuthProvider();
 
   loginWithGoogle() {
@@ -49,6 +51,7 @@ userLogged: boolean = false;
     const user = this.afAuth.currentUser;
     console.log('user disconnesso', user);
     this.userLogged = false;
+    this.router.navigate(['/home']);
 
   }
 
@@ -64,15 +67,8 @@ userLogged: boolean = false;
 
     var utente: Utente = {"userCode": user.uid, "tipo": "utente", "email": user.email, "nome": user.displayName};
     console.log('utente', utente.email);
-
-    this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
-      (data: any) => {
-          console.log('Successo durante l\'invio dell\'utente al backend', data);
-      },
-      (error:any) => {
-          console.error('Errore durante l\'invio dell\'utente al backend', error);
-      }
-  );
+    this.authService.sendUserToBackend(utente);
+    
 }
 
   getUser() { 

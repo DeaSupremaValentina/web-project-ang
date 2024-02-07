@@ -1,10 +1,11 @@
 
 <div class="container-fluid">
     <div class="personal-area">
+        <div class="contenitore" style="display: flex; flex-direction: row; padding-top: 30px; ">
         <div class="sidebar">
             <a routerLink="/ricette-salvate">Ricette salvate</a>
             <a routerLink="/ricette-scritte-da-te">Ricette scritte da te</a>
-            <a routerLink="/invia-ricetta">Invia la tua ricetta</a>
+            <a routerLink="/form-nuova-ricetta">Invia la tua ricetta</a>
         </div>
     <div class="personal-page">
         <div class="personal-page-up">
@@ -30,11 +31,12 @@
               </a>
         </div>
         <div class="personal-page-down">
-           <button routerLink="/area-moderatore">Area moderatore</button>
+           <button (click)="checkAdmin()">Area moderatore</button>
                 
         </div>
             
     </div>
+</div>
 </div>
 </div>
 

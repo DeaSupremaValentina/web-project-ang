@@ -10,6 +10,7 @@ import { RicetteProposteComponent } from './ricette-proposte/ricette-proposte.co
 import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/dettagli-ricetta-proposta.component';
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { RicetteCategoriaComponent } from './ricette-categoria/ricette-categoria.component';
+import { RicetteSalvateComponent } from './ricette-salvate/ricette-salvate.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'ricetteproposte_id/:id', component: DettagliRicettaPropostaComponent },
   { path: 'chi_siamo', component: ChiSiamoComponent },
   { path: 'ricette_categoria/:categoria', component: RicetteCategoriaComponent },
+  { path: 'ricette-salvate', component: RicetteSalvateComponent }
 ];
 
 @NgModule({
