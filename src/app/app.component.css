@@ -2,8 +2,9 @@
 .navbar {
 display: flex;
 align-items: center;
-background-color: white; /* Aggiungi il colore di sfondo desiderato */
+background-color: blanchedalmond; /* Aggiungi il colore di sfondo desiderato */
 padding: 10px;
+width: 100%;
 
 }
 
@@ -117,9 +118,11 @@ cursor: pointer;
 
 
 
-.container {
+.container-fluid {
+  width: 100%;
   background-color: blanchedalmond;
   align-items: center;
+  border-left: none; 
   
 }
 
@@ -309,7 +312,7 @@ figcaption {
 }
 
 .form-button button{
-  background-color: #ff8c69;
+  background-color: blanchedalmond;
   font-size: 15px;
   color: black;
   
@@ -318,7 +321,7 @@ figcaption {
 
 
 footer{
-  background: white;
+  background: #;
   padding-top: 10px;
   
 }

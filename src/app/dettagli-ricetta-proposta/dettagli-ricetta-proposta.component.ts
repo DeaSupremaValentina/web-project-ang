@@ -6,7 +6,7 @@ import { Ricetta } from '../model/ricetta';
 @Component({
   selector: 'app-dettagli-ricetta-proposta',
   templateUrl: './dettagli-ricetta-proposta.component.html',
-  styleUrl: './dettagli-ricetta-proposta.component.css'
+  styleUrl: '../app.component.css'
 })
 export class DettagliRicettaPropostaComponent implements OnInit{
 

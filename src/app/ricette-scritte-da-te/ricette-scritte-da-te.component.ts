@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-ricette-scritte-da-te',
   templateUrl: './ricette-scritte-da-te.component.html',
-  styleUrl: './ricette-scritte-da-te.component.css'
+  styleUrl: '../app.component.css'
 })
 export class RicetteScritteDaTeComponent {
   ricette: any;
