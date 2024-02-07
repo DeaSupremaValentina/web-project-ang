@@ -2,8 +2,10 @@
 .navbar {
 display: flex;
 align-items: center;
-background-color: #a3f085; /* Aggiungi il colore di sfondo desiderato */
+background-color: blanchedalmond; /* Aggiungi il colore di sfondo desiderato */
 padding: 10px;
+width: 100%;
+margin-bottom: 0;
 
 }
 
@@ -13,9 +15,11 @@ padding: 10px;
   padding: 0;
   margin-right: 5px;
   background-color: #ff8c69;
+  
 }
 
 .menu-list li {
+ 
   display: inline-block;
   margin-right: 0px;
   position: relative; /* Aggiungi questa linea per rendere relativo l'elemento padre */
@@ -117,9 +121,20 @@ cursor: pointer;
 
 
 
-.container {
+.container-fluid {
+  width: 100%;
+  align-items: center;
+  border: none; 
+  padding-left: 0;
+  padding-right: 0;
+  
+}
+
+.contenitore{
+  width: 100%;
   background-color: blanchedalmond;
   align-items: center;
+  border: none; 
 }
 
 .first-row, .second-row {
@@ -148,6 +163,11 @@ cursor: pointer;
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+figcaption {
+  text-align: center;
+  color: black;
 }
 
 @media (min-width: 768px) { /* Regole per layout su dispositivi di dimensioni medio-grandi */
@@ -219,7 +239,7 @@ cursor: pointer;
   }
 } 
 .sidebar {
-  height: 50%;
+  height: 100vh;
   width: 300px;
   position: relative;
   z-index: 1;
@@ -244,20 +264,18 @@ cursor: pointer;
   color: #f1f1f1;
 }
 
-footer{
-  background: #acf085;
-  padding-top: 10px;
-  
-}
 
-.contact-info{
-  padding-bottom: 20px;
+
+.personal-area{
+  display: flex;
+  flex-direction: row;
 }
 
 .personal-page{
   display: flex;
-  width: 100%;
+  width: 70%;
   flex-direction: column;
+  padding-left: 60px;
 }
 
 .personal-page-up, .personal-page-middle{
@@ -267,7 +285,15 @@ footer{
   align-items: center;
   width: 100%;
   height: 50%;
+  padding-top: 20px;
   
+  
+}
+
+.personal-page-up a, .personal-page-middle a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .personal-page-down{
@@ -294,6 +320,7 @@ footer{
   align-items: flex-end;
   padding-right: 20px;
   padding-bottom: 20px;
+  
 }
 
 .form-button button{
@@ -301,4 +328,18 @@ footer{
   font-size: 15px;
   color: black;
   
+}
+
+
+
+footer{
+  background: rgb(230, 212, 185);
+  padding-top: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
+  
+}
+
+.contact-info{
+  padding-bottom: 20px;
 }
