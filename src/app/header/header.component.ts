@@ -51,6 +51,7 @@ userLogged: boolean = false;
     const user = this.afAuth.currentUser;
     console.log('user disconnesso', user);
     this.userLogged = false;
+    this.authService.notifyLogout();
     this.router.navigate(['/home']);
 
   }
