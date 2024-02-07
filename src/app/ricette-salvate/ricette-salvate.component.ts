@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-ricette-salvate',
@@ -12,8 +10,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class RicetteSalvateComponent {
   ricette: any;
-  constructor(private ricetteService: RicetteServiceService, private router: Router, private auth: AngularFireAuth) {
-    this.ricetteService.dammiInfoRicette().subscribe((data) => {
+  constructor(private ricetteService: RicetteServiceService, private router: Router) {
+    this.ricetteService.dammiRicetteSalvate().subscribe((data) => {
       this.ricette = data;
     });
   }

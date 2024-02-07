@@ -37,4 +37,8 @@ export class RicetteServiceService {
   eliminaRicettaSalvata(ricetta: Ricetta): Observable<Ricetta> {
     return this.http.post<Ricetta>(this.backendUrl+"/rimuoviRicetta", ricetta.codice);
   }
+
+  dammiRicetteSalvate():Observable<Ricetta[]>{ 
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate");
+  }
 }
