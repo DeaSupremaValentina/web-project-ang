@@ -37,6 +37,7 @@ export class DettagliRicettaComponent implements OnInit {
         this.ricetta = data;
         this.youtubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ricetta.linkYoutube);
         this.spotifyUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ricetta.linkSpotify);
+        this.commentiRicetta()
       },
       (error) => {
         console.error(error);
@@ -84,5 +85,13 @@ export class DettagliRicettaComponent implements OnInit {
       }
     }
     this.titoloBottone();
+  }
+  commentiRicetta(){
+    if(this.ricetta?.commenti.length==0){
+      this.commenti="Non ci sono ancora commenti... *verso delle cicale*";
+    }
+    else{
+      this.commenti="Commenti: ";
+    }
   }
 }
