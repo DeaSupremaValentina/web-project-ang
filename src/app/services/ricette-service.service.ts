@@ -30,4 +30,11 @@ export class RicetteServiceService {
   dammiInfoRicetteByCategoria(categoria: string):Observable<Ricetta[]>{
     return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_categoria/${categoria}`);
   }
+  
+  salvaRicetta(ricetta: Ricetta): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/salvaRicetta", ricetta.codice);
+  }
+  eliminaRicettaSalvata(ricetta: Ricetta): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/rimuoviRicetta", ricetta.codice);
+  }
 }

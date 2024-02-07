@@ -14,6 +14,9 @@ export class DettagliRicettaComponent implements OnInit {
   ricetta: Ricetta | undefined;
   youtubeUrl: SafeResourceUrl | undefined;
   spotifyUrl: SafeResourceUrl | undefined;
+  ricettaGiaSalvata: boolean = false;
+  bottone: string = "Salva Ricetta";
+  commenti: string = "Commenti:";
 
   constructor(
     private route: ActivatedRoute,
@@ -39,5 +42,47 @@ export class DettagliRicettaComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  titoloBottone(){
+    if(this.ricettaGiaSalvata==false){
+      this.bottone="Salva Ricetta";
+    }
+    else{
+      
+      this.bottone="Elimina Ricetta Salvata";
+    }
+  }
+
+  salvaRicetta() {
+
+    if(this.ricettaGiaSalvata==false){
+      if (this.ricetta) { //se ricetta non è undefined
+        this.ricettaGiaSalvata=true;
+        this.ricetteService.salvaRicetta(this.ricetta).subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+    }
+    else{
+      //la ricetta va tolta dalle ricette salvate
+      if (this.ricetta) { //se ricetta non è undefined
+        this.ricettaGiaSalvata=false;
+        this.ricetteService.eliminaRicettaSalvata(this.ricetta).subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+    }
+    this.titoloBottone();
   }
 }

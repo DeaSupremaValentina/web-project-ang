@@ -6,14 +6,22 @@
     border-radius: 5px;
 }
 
-#descr {
-    float: left;
+.titoloEButton {
+    display: inline-block;
+    margin-right: 10px; 
 }
-
-#proc {
-    float: left;
+#button {
+    /* voglio un bottone carino che sia arancione*/
+    background-color: #ffd47d;
+    border: 3px solid #ffa527;
+    color: #b97344;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    display: inline-block;
 }
-
 pre {
     margin: 0;
     padding: 0;
@@ -28,6 +36,7 @@ pre {
 
 
 #ingr {
+    clear: both;
     float: left;
     margin: 10px;
     border-radius: 5px;
@@ -36,7 +45,7 @@ pre {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border: 5px solid #e9c2a2; 
     border-radius:  15px;
-
+    display: block;
 }
 
 .destra {
@@ -61,8 +70,31 @@ pre {
     max-width: 100%;
 }
 
-.temporaneo{
+#proc {
     clear: both;
-    
+    float: left;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+#youtube {
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    border-radius:  15px;
 }
 
+#spotify {
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    border-radius:  15px;
+}
+
+.commenti {
+    clear: both;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    border-radius:  15px;
+}

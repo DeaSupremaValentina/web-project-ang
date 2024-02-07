@@ -1,32 +1,8 @@
-<!--
 <div class="container">
-    <h2>{{ ricetta?.nomeRicetta }}</h2>
-    <div class="card">
-        <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta?.pathImmagine }}" alt="{{ ricetta?.nomeRicetta }}">
-        <div class="container">
-        <h4><b>{{ ricetta?.nomeRicetta }}</b></h4>
-        <P>Autore: {{ ricetta?.autore }}</P>
-        <p>youtube</p>
-        <p>spotify</p>
-        <p>Categoria: {{ ricetta?.categoria }}</p>
-        <p>#{{ ricetta?.tag1 }}, #{{ ricetta?.tag2 }}</p>
-        <p>Numero di persone: {{ ricetta?.numeroPersone }}</p>
-        <p>Tempo: {{ ricetta?.tempoPreparazione }}</p>
-        <p>Difficoltà: {{ ricetta?.difficolta }}</p>
-        <p>Costo: {{ ricetta?.costo }}</p>
-        <br>
-        <pre id="descr">{{ ricetta?.descrizione }}</pre>
-        <pre>{{ ricetta?.ingredienti }}</pre>
-        <pre id="proc">{{ ricetta?.procedimento }}</pre>
-        <p>recensioni</p>
-        <p>commenti</p>
-        </div>
-    </div> 
-</div>
--->
-
-<div class="container">
-    <h2><b>{{ ricetta?.nomeRicetta }}</b></h2>
+    <div class="titoloEButton">
+        <h2><b>{{ ricetta?.nomeRicetta }}</b> </h2> 
+        <button id="button" (click)="salvaRicetta()">{{bottone}}</button>
+    </div>
     <h5 id="tag"><i>#{{ ricetta?.tag1 }}</i>, <i>#{{ ricetta?.tag2 }}</i></h5>
     <div class="card">
         <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta?.pathImmagine }}" alt="{{ ricetta?.nomeRicetta }}">
@@ -39,22 +15,24 @@
                 <p><b>Tempo: </b>{{ ricetta?.tempoPreparazione }}</p>
                 <p><b>Difficoltà: </b>{{ ricetta?.difficolta }}</p>
                 <p><b>Costo: </b>{{ ricetta?.costo }}</p>
+                
             </div>
-            
                 <p id="descr"><b>Descrizione: </b>{{ ricetta?.descrizione }}</p>
-                <pre id="ingr"><b>Ingredienti: </b><br>{{ ricetta?.ingredienti }}</pre>
-                <pre id="proc"><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</pre>
+                <div id="ingr"><pre><b>Ingredienti: </b><br>{{ ricetta?.ingredienti }}</pre></div>
+                <div id="proc"><pre><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</pre></div><br>
             
-            <div class="temporaneo">
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/eMu46tuonWk" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://open.spotify.com/embed/playlist/4KojqoWpEbXhNWyesg2pbT?utm_source=generator" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe> -->
-                <iframe width="560" height="315" [src]="youtubeUrl" frameborder="0" allowfullscreen></iframe>
-                <iframe [src]="spotifyUrl" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-                <p>recensioni</p>
-                <!--voglio far visualizzare tutta l'array dei commenti in ricetta-->
-                
-                
-            <div>
+            <div class="api">
+                <iframe id="youtube" width="560" height="315" [src]="youtubeUrl" frameborder="0" allowfullscreen></iframe> <br>
+                <iframe id="spotify" [src]="spotifyUrl" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe> <br>
+            </div>
+            <div class="commenti">
+                <p><b>{{commenti}}</b></p>
+                <ul>
+                <li *ngFor="let commento of ricetta?.commenti">
+                  <p>{{ commento.username }} dice: {{ commento.contenuto }}</p>
+                </li>
+                </ul>
+            </div>
         </div>
     </div> 
 </div>
