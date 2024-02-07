@@ -46,10 +46,10 @@
                 <pre id="proc"><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</pre>
             
             <div class="temporaneo">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/eMu46tuonWk" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://open.spotify.com/embed/playlist/4KojqoWpEbXhNWyesg2pbT?utm_source=generator" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-                <!--<iframe width="560" height="315" src={{ ricetta?.linkYoutube }} frameborder="0" allowfullscreen></iframe>
-                <iframe src={{ ricetta?.linkSpotify }} width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>-->
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/eMu46tuonWk" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://open.spotify.com/embed/playlist/4KojqoWpEbXhNWyesg2pbT?utm_source=generator" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe> -->
+                <iframe width="560" height="315" [src]="youtubeUrl" frameborder="0" allowfullscreen></iframe>
+                <iframe [src]="spotifyUrl" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
                 <p>recensioni</p>
                 <!--voglio far visualizzare tutta l'array dei commenti in ricetta-->
                 

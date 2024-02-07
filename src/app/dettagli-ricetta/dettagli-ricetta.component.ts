@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dettagli-ricetta',
@@ -11,10 +12,13 @@ import { Ricetta } from '../model/ricetta';
 export class DettagliRicettaComponent implements OnInit {
   idRicetta: any;
   ricetta: Ricetta | undefined;
+  youtubeUrl: SafeResourceUrl | undefined;
+  spotifyUrl: SafeResourceUrl | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private ricetteService: RicetteServiceService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -28,6 +32,8 @@ export class DettagliRicettaComponent implements OnInit {
     this.ricetteService.getRicettaByID(this.idRicetta).subscribe(
       (data: Ricetta) => {
         this.ricetta = data;
+        this.youtubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ricetta.linkYoutube);
+        this.spotifyUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.ricetta.linkSpotify);
       },
       (error) => {
         console.error(error);
