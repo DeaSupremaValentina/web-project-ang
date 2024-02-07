@@ -22,8 +22,8 @@
                 <div id="proc"><p><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</p></div><br>
             
             <div class="api">
-                <iframe id="youtube" width="560" height="315" [src]="youtubeUrl" frameborder="0" allowfullscreen></iframe> <br>
-                <iframe id="spotify" [src]="spotifyUrl" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe> <br>
+                <iframe id="youtube" width="560" height="315" [attr.src]="youtubeUrl" frameborder="0" allowfullscreen></iframe> <br>
+                <iframe id="spotify" [attr.src]="spotifyUrl" width="600" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe> <br>
             </div>
             <div class="commenti">
                 <p><b>{{commenti}}</b></p>
