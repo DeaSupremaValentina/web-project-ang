@@ -41,4 +41,8 @@ export class RicetteServiceService {
   dammiRicetteSalvate():Observable<Ricetta[]>{ 
     return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate");
   }
+
+  dammiRicetteSalvateDaUtente():Observable<Ricetta[]>{
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate");
+  }
 }

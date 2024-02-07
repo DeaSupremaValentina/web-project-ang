@@ -27,6 +27,7 @@ export class DettagliRicettaComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.idRicetta = params['id'];
+      this.controlloSalvataggio();
       this.loadRicettaDetails();
     });
   }
@@ -93,5 +94,20 @@ export class DettagliRicettaComponent implements OnInit {
     else{
       this.commenti="Commenti: ";
     }
+  }
+  controlloSalvataggio(){
+    this.ricetteService.dammiRicetteSalvateDaUtente().subscribe(
+      (data: Ricetta[]) => {
+        for(let i=0;i<data.length;i++){
+          if(data[i].codice==this.idRicetta){
+            this.ricettaGiaSalvata=true;
+          }
+        }
+        this.titoloBottone();
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }
