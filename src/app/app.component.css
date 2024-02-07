@@ -5,6 +5,7 @@ align-items: center;
 background-color: blanchedalmond; /* Aggiungi il colore di sfondo desiderato */
 padding: 10px;
 width: 100%;
+margin-bottom: 0;
 
 }
 
@@ -122,10 +123,18 @@ cursor: pointer;
 
 .container-fluid {
   width: 100%;
+  align-items: center;
+  border: none; 
+  padding-left: 0;
+  padding-right: 0;
+  
+}
+
+.contenitore{
+  width: 100%;
   background-color: blanchedalmond;
   align-items: center;
-  border-left: none; 
-  
+  border: none; 
 }
 
 .first-row, .second-row {
@@ -326,6 +335,8 @@ figcaption {
 footer{
   background: rgb(230, 212, 185);
   padding-top: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
   
 }
 
