@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'chi_siamo', component: ChiSiamoComponent },
   { path: 'ricette_categoria/:categoria', component: RicetteCategoriaComponent },
   { path: 'ricette-salvate', component: RicetteSalvateComponent },
-  { path: 'ricette-nome', component: RicetteNomeComponent },
+  { path: 'ricette-nome/:searchQuery', component: RicetteNomeComponent },
 ];
 
 @NgModule({
