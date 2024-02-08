@@ -50,11 +50,11 @@ export class DettagliRicettaComponent implements OnInit {
 
   titoloBottone(){
     if(this.ricettaGiaSalvata==false){
-      this.bottone="Salva Ricetta";
+      this.bottone="Salva ricetta";
     }
     else{
       
-      this.bottone="Elimina Ricetta Salvata";
+      this.bottone="Elimina ricetta salvata";
     }
   }
 
