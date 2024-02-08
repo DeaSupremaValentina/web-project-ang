@@ -10,6 +10,7 @@ const backendUrl = 'http://localhost:8080';
   providedIn: 'root'
 })
 export class AuthService {
+  private userLogged: boolean = false;
   
   constructor(private http:HttpClient) { }
   checkAdmin():Observable<string> {
@@ -36,6 +37,14 @@ export class AuthService {
           console.error('Errore durante il logout', error);
       }
   );
+  }
+
+  setUserLogged(userLogged: boolean) {
+    this.userLogged = userLogged;
+  }
+
+  isUserLogged() {
+    return this.userLogged;
   }
 }
 

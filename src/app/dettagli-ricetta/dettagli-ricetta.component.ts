@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dettagli-ricetta',
@@ -21,7 +22,8 @@ export class DettagliRicettaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private ricetteService: RicetteServiceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -57,36 +59,40 @@ export class DettagliRicettaComponent implements OnInit {
   }
 
   salvaRicetta() {
-
-    if(this.ricettaGiaSalvata==false){
-      if (this.ricetta) { //se ricetta non è undefined
-        this.ricettaGiaSalvata=true;
-        this.ricetteService.salvaRicetta(this.ricetta).subscribe(
-          (data) => {
-            console.log(data);
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
-      }
+    if(this.authService.isUserLogged()==false){
+      this.showLoginAlert();
     }
-    else{
-      //la ricetta va tolta dalle ricette salvate
-      if (this.ricetta) { //se ricetta non è undefined
-        this.ricettaGiaSalvata=false;
-        this.ricetteService.eliminaRicettaSalvata(this.ricetta).subscribe(
-          (data) => {
-            console.log(data);
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
+    else {
+      if(this.ricettaGiaSalvata==false){
+        if (this.ricetta) { //se ricetta non è undefined
+          this.ricettaGiaSalvata=true;
+          this.ricetteService.salvaRicetta(this.ricetta).subscribe(
+            (data) => {
+              console.log(data);
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+        }
       }
-    }
-    this.titoloBottone();
+      else{
+        //la ricetta va tolta dalle ricette salvate
+        if (this.ricetta) { //se ricetta non è undefined
+          this.ricettaGiaSalvata=false;
+          this.ricetteService.eliminaRicettaSalvata(this.ricetta).subscribe(
+            (data) => {
+              console.log(data);
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+        }
+      }
+      this.titoloBottone();
   }
+}
   commentiRicetta(){
     if(this.ricetta?.commenti.length==0){
       this.commenti="Non ci sono ancora commenti... *verso delle cicale*";
@@ -110,4 +116,12 @@ export class DettagliRicettaComponent implements OnInit {
       }
     );
   }
+
+  getUserStatus(){
+    return this.authService.isUserLogged();
+  }
+
+  showLoginAlert() {
+    alert("Devi effettuare il login prima di poter salvare una ricetta.");
+}
 }

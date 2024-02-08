@@ -1,11 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import auth from 'firebase/compat/app';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
-import { Utente } from '../model/utente.model';
-import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
+import auth from 'firebase/compat/app';
+import { Utente } from '../model/utente.model';
 import { AuthService } from '../services/auth.service';
 
 
@@ -17,13 +15,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent {
 isSidebarOpen: boolean = false;
-userLogged: boolean = false;
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  constructor(private afAuth: AngularFireAuth, private http: HttpClient, private router: Router, private authService: AuthService) { }
+  constructor(private afAuth: AngularFireAuth,
+              private router: Router,
+              private authService: AuthService) {}
+
   googleAuthProvider = new auth.auth.GoogleAuthProvider();
 
   loginWithGoogle() {
@@ -32,18 +32,13 @@ userLogged: boolean = false;
       console.log(result.user);
       if (result.user) {
           this.sendUserToBackend(result.user);
-          this.userLogged = true;
-         
-        
+          this.authService.setUserLogged(true);       
       }
     })
     .catch((error) => {
       console.error(error);
     });
       console.log('userloggato');
-      
-  
-    
   }
 
   logout() {
@@ -51,14 +46,14 @@ userLogged: boolean = false;
     this.afAuth.signOut();
     const user = this.afAuth.currentUser;
     console.log('user disconnesso', user);
-    this.userLogged = false;
+    this.authService.setUserLogged(false);
     this.authService.notifyLogout();
     this.router.navigate(['/home']);
 
   }
 
   getUserLog() {
-    return this.userLogged;
+    return this.authService.isUserLogged();
   }
 
     showLoginAlert() {
@@ -66,11 +61,9 @@ userLogged: boolean = false;
   }
 
   sendUserToBackend(user: any) {
-
     var utente: Utente = {"userCode": user.uid, "tipo": "utente", "email": user.email, "nome": user.displayName};
     console.log('utente', utente.email);
     this.authService.sendUserToBackend(utente);
-    
 }
 
   
