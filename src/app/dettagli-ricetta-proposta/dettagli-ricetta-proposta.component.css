@@ -1,0 +1,86 @@
+#immagine-base64 {
+    width: 400px;
+    height: auto;
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.titoloEButton {
+    display: inline-block;
+    margin-right: 10px; 
+}
+#button {
+    /* voglio un bottone carino che sia arancione*/
+    background-color: #ffd47d;
+    border: 3px solid #ffa527;
+    color: #b97344;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    display: inline-block;
+}
+pre {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    white-space: pre;
+}
+
+
+#ingr {
+    clear: both;
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f8dbc3;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 5px solid #e9c2a2; 
+    border-radius:  15px;
+    display: block;
+}
+
+.destra {
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ffe0c7;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 5px solid #f3caa8; 
+    border-radius:  15px;
+}
+
+#tag {
+    color: #b97344;
+    
+}
+#descr {
+    float: left;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+#proc {
+    clear: both;
+    float: left;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+#spotify {
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    border-radius:  15px;
+}
