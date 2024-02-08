@@ -15,6 +15,7 @@ margin-bottom: 0;
   padding: 0;
   margin-right: 5px;
   background-color: #ff8c69;
+  border-radius: 5px;
   
 }
 
@@ -23,6 +24,7 @@ margin-bottom: 0;
   display: inline-block;
   margin-right: 0px;
   position: relative; /* Aggiungi questa linea per rendere relativo l'elemento padre */
+  
 }
 
 .submenu {
@@ -62,6 +64,7 @@ margin-bottom: 0;
 .logo {
 max-width: 100px; /* Regola la larghezza massima del logo */
 margin-right: auto;
+
 }
 
 .center-bar {
@@ -85,6 +88,7 @@ padding: 10px;
 margin-right: 10px; 
 background-color: #ff8c699e;
 width: 80%;
+border-radius: 5px;
 }
 
 .search-bar button {
@@ -93,6 +97,7 @@ background-color: #ff8c69; /* Aggiungi il colore desiderato per il bottone di ri
 color: black; /* Aggiungi il colore desiderato per il testo del bottone di ricerca */
 cursor: pointer;
 border: 1px solid black;
+border-radius: 5px;
 }
 
 /* Stili per il login */
@@ -109,6 +114,7 @@ background-color: #ff8c69; /* Aggiungi il colore desiderato per il bottone di lo
 color: black; /* Aggiungi il colore desiderato per il testo del bottone di login/logout */
 border: 1px solid black;
 cursor: pointer;
+border-radius: 5px;
 }
 
 
@@ -322,6 +328,7 @@ figcaption {
   background-color: #ff8c69;
   font-size: 15px;
   color: black;
+  border-radius: 5px;
 }
 
 .personal-page-up a{
@@ -341,6 +348,7 @@ figcaption {
   background-color: #ff8c69;
   font-size: 15px;
   color: black;
+  border-radius: 5px;
   
 }
 
