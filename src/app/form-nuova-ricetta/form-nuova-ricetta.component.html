@@ -1,14 +1,17 @@
+
 <div class="container-fluid">
   <div class="contenitore" style="padding: 20px;">
   <h2>Nuova Ricetta</h2>
   <p>Compila il form per inviare una nuova ricetta</p>
-<form [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
+  
+
+<form id="ricettaForm" onsubmit="event.preventDefault(); inviaRicetta(event);">
 
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
-        <label for="nomeRicetta">*Nome Ricetta:</label>
-        <input type="text" class="form-control" id="nomeRicetta" formControlName="nomeRicetta">
+        <label for="nomeRicetta">Nome Ricetta:</label>
+        <input type="text" class="form-control" id="nomeRicetta">
       </div>
     </div>
   </div> 
@@ -16,8 +19,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
-        <label for="categoria">*Categoria:</label>
-        <input type="text" class="form-control" id="categoria" formControlName="categoria">
+        <label for="categoria">Categoria:</label>
+        <input type="text" class="form-control" id="categoria">
       </div>
     </div>
   </div>
@@ -25,8 +28,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
-        <label for="descrizione">*Descrizione:</label>
-        <textarea class="form-control" id="descrizione" formControlName="descrizione" rows="4"></textarea>
+        <label for="descrizione">Descrizione:</label>
+        <textarea class="form-control" id="descrizione" rows="4"></textarea>
       </div>
     </div>
   </div>
@@ -35,8 +38,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
-        <label for="ingredienti">*Ingredienti:</label>
-        <textarea class="form-control" id="ingredienti" formControlName="ingredienti" rows="6"></textarea>
+        <label for="ingredienti">Ingredienti:</label>
+        <textarea class="form-control" id="ingredienti" rows="6"></textarea>
       </div>
     </div>
   </div>
@@ -44,8 +47,8 @@
     <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
-        <label for="procedimento">*Procedimento:</label>
-        <textarea class="form-control" id="procedimento" formControlName="procedimento" rows="10"></textarea>
+        <label for="procedimento">Procedimento:</label>
+        <textarea class="form-control" id="procedimento" rows="10"></textarea>
       </div>
     </div>
   </div>
@@ -54,7 +57,7 @@
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
         <label for="tempoPreparazione">Tempo di Preparazione:</label>
-        <input type="text" class="form-control" id="tempoPreparazione" formControlName="tempoPreparazione">
+        <input type="text" class="form-control" id="tempoPreparazione" >
       </div>
     </div>
   </div>
@@ -63,7 +66,7 @@
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
         <label for="numeroPersone">Numero Persone:</label>
-        <input type="text" class="form-control" id="numeroPersone" formControlName="numeroPersone">
+        <input type="text" class="form-control" id="numeroPersone">
       </div>
     </div>
   </div>
@@ -73,7 +76,7 @@
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
         <label for="difficolta">Difficoltà:</label>
-        <input type="text" class="form-control" id="difficolta" formControlName="difficolta">
+        <input type="text" class="form-control" id="difficolta">
       </div>
     </div>
   </div>
@@ -82,42 +85,125 @@
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
         <label for="costo">Costo:</label>
-        <input type="text" class="form-control" id="costo" formControlName="costo">
+        <input type="text" class="form-control" id="costo">
       </div>
     </div>
   </div>
-    
-  <div class="row">
-    <div class="col-xs-12 col-sm-12">
-    <div class="form-group">
-      <label for="linkYoutube">Link YouTube:</label>
-      <input type="text" class="form-control" id="linkYoutube" formControlName="linkYoutube">
-    </div>
-    </div>
-  </div>
 
-    
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div class="form-group">
         <label for="linkSpotify">Link Spotify:</label>
-        <input type="text" class="form-control" id="linkSpotify" formControlName="linkSpotify">
-      </div>
-    </div>
-  </div>
-
-    
-  <div class="row">
-    <div class="col-xs-12 col-sm-12">
-      <div class="form-group">
-        <label for="autore">Autore:</label>
-        <input type="text" class="form-control" id="autore" formControlName="autore">
+        <input type="text" class="form-control" id="linkSpotify" >
       </div>
     </div>
   </div>
     
-    <div class="form-button"><button type="submit" class="btn btn-primary">Invia Ricetta</button></div>
+    <div class="form-button"><button type="submit">Invia Ricetta</button></div>
   </form>
-</div>
-</div>
+  <script>
+    function inviaRicetta(event) {
+      event.preventDefault();
+      console.log('Pulsante partito');
   
+      var form = document.getElementById('ricettaForm');
+  
+      var nomeRicetta = document.getElementById('nomeRicetta').value;
+      // Puoi ottenere altri valori dei campi del form allo stesso modo
+  
+      var errorMessage = '';
+  
+      if (nomeRicetta.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var categoria = document.getElementById('categoria').value;
+      if (categoria.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var descrizione = document.getElementById('descrizione').value;
+      if (descrizione.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var ingredienti = document.getElementById('ingredienti').value;
+      if (ingredienti.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var procedimento = document.getElementById('procedimento').value;
+      if (procedimento.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var tempoPreparazione = document.getElementById('tempoPreparazione').value;
+      if (tempoPreparazione.trim() === '') {
+        errorMessage += 'Completa tutti i campi con *\n';
+      }
+      var numeroPersone = document.getElementById('numeroPersone').value;
+      if (numeroPersone.trim() === '') {
+        errorMessage += 'Completa tutti i campi del form.\n';
+      }
+  
+      var difficolta = document.getElementById('difficolta').value;
+      if (difficolta.trim() === '') {
+        errorMessage += 'Completa tutti i campi del form.\n';
+      }
+  
+      var costo = document.getElementById('costo').value;
+      if (costo.trim() === '') {
+        errorMessage += 'Completa tutti i campi del form.\n';
+      }
+  
+  
+      if (errorMessage !== '') {
+        alert(errorMessage);
+      } else {
+        console.log('Form inviato con successo');
+        var ricettaProposta = {
+          codiceRicetta: 0,
+          nomeRicetta: nomeRicetta,
+          categoria: categoria,
+          descrizione: descrizione,
+          ingredienti: ingredienti,
+          procedimento: procedimento,
+          tempoPreparazione: tempoPreparazione,
+          numeroPersone: numeroPersone,
+          difficolta: difficolta,
+          costo: costo,
+          linkYoutube: 'linkYoutube',
+          linkSpotify: 'linkSpotify',
+          autore: 'autore',
+          pathImmagine: 'pathImmagine',
+          tag1: 'tag1',
+          tag2: 'tag2',
+  
+        };
+  
+        //inviaRicettaAlBackend(ricettaProposta);
+      }
+    }
+  
+   /* function inviaRicettaAlBackend(ricetta) {
+  
+      fetch('http://localhost:8080/salvaProposta', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(ricetta)
+      })
+      .then(response => {
+          // Gestisci la risposta del backend
+          if (response.ok) {
+              // La richiesta è andata a buon fine
+              console.log('Ricetta inviata con successo al backend');
+          } else {
+              // Gestisci eventuali errori
+              console.error('Errore durante l\'invio della ricetta al backend');
+          }
+      })
+      .catch(error => {
+          console.error('Si è verificato un errore:', error);
+      });
+  }*/
+  </script>
+</div>
+</div>
+

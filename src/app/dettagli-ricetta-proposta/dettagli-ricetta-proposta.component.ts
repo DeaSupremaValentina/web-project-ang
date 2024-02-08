@@ -8,6 +8,7 @@ import { Ricetta } from '../model/ricetta';
   templateUrl: './dettagli-ricetta-proposta.component.html',
   styleUrl: '../app.component.css'
 })
+
 export class DettagliRicettaPropostaComponent implements OnInit{
 
   idRicetta: any;
@@ -34,6 +35,19 @@ export class DettagliRicettaPropostaComponent implements OnInit{
         console.error(error);
       }
     );
+  }
+
+  accettaProposta() {
+    if (this.ricetta) {
+      this.ricetteService.accettaRicetta(this.ricetta).subscribe(
+        (data: Ricetta) => {
+          this.ricetta = data;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
   }
 
 }

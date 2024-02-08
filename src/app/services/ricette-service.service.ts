@@ -45,4 +45,8 @@ export class RicetteServiceService {
   dammiRicetteSalvateDaUtente():Observable<Ricetta[]>{
     return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate");
   }
+
+  accettaRicetta(ricetta: Ricetta): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", ricetta);
+  }
 }

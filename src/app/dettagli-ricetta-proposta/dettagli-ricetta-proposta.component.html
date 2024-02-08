@@ -12,11 +12,15 @@
                 <p><b>Tempo: </b>{{ ricetta?.tempoPreparazione }}</p>
                 <p><b>Difficoltà: </b>{{ ricetta?.difficolta }}</p>
                 <p><b>Costo: </b>{{ ricetta?.costo }}</p>
+                
             </div>
-            
                 <p id="descr"><b>Descrizione: </b>{{ ricetta?.descrizione }}</p>
-                <pre id="ingr"><b>Ingredienti: </b><br>{{ ricetta?.ingredienti }}</pre>
-                <pre id="proc"><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</pre>
+                <div id="ingr"><pre><b>Ingredienti: </b><br>{{ ricetta?.ingredienti }}</pre></div>
+                <div id="proc"><p><b>Procedimento: </b><br>{{ ricetta?.procedimento }}</p></div><br>
+            
+                <div class="button"><button (click)="accettaProposta()">Accetta ricetta</button> </div>
+
+
             
         
         </div>

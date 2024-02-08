@@ -33,6 +33,7 @@ userLogged: boolean = false;
       if (result.user) {
           this.sendUserToBackend(result.user);
           this.userLogged = true;
+         
         
       }
     })
@@ -72,9 +73,7 @@ userLogged: boolean = false;
     
 }
 
-  getUser() { 
-    return this.afAuth.currentUser;
-  }
+  
 
 }
 
