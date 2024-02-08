@@ -12,9 +12,7 @@ export class FormNuovaRicettaComponent {
   
   constructor(private http: HttpClient) {}
 
-  maNo(){
-    
-  }
+  
 
 
 }
