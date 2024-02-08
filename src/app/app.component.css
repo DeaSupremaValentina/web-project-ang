@@ -35,6 +35,7 @@ margin-bottom: 0;
   z-index: 1;
   top: 100%; /* Aggiungi questa linea per posizionare il menu a discesa sotto l'elemento padre */
   white-space: nowrap; /* Evita il riavvolgimento del testo nel menu a discesa */
+  border-radius: 5px;
 }
 
 .menu-list li:hover .submenu {
@@ -181,7 +182,7 @@ border-radius: 5px;
   font-weight: bold; /* Testo spesso */
   /*font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif; /* Font spesso */
   font-family: 'Roboto', sans-serif;
-  background-color: transparent; /* Nessuno sfondo */
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-text-stroke: 2px rgb(40, 38, 38); /* Bordo del testo */
 }
 
