@@ -1,0 +1,14 @@
+<div class="container">
+    <ng-container *ngIf="ricette && ricette.length > 0">
+      <h2>{{ ricette[0].categoria }}</h2>
+    </ng-container>
+        <div class="card" *ngFor="let ricetta of ricette" (click)="handleCardClick(ricetta)">
+          <img id="immagine-base64" src="data:image/jpeg;base64,{{ ricetta.pathImmagine }}" alt="{{ ricetta.nomeRicetta }}">
+          <div class="container">
+            <h5 class="categoria"><b><i>{{ ricetta.categoria }}</i></b></h5>
+            <h4 class="nomeRicetta">{{ ricetta.nomeRicetta }}</h4>
+            <p>{{ ricetta.descrizione }}</p>
+            <p class="fine-card"><b>Difficoltà:</b> {{ ricetta.difficolta }}<br><b>Tempo di preparazione: </b>{{ ricetta.tempoPreparazione }}<br> <b>Porzione per: </b>{{ ricetta.numeroPersone }}</p>
+          </div>
+        </div>
+    </div>

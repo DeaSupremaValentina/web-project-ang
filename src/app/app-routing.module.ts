@@ -11,6 +11,7 @@ import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/de
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { RicetteCategoriaComponent } from './ricette-categoria/ricette-categoria.component';
 import { RicetteSalvateComponent } from './ricette-salvate/ricette-salvate.component';
+import { RicetteNomeComponent } from './ricette-nome/ricette-nome.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'ricetteproposte_id/:id', component: DettagliRicettaPropostaComponent },
   { path: 'chi_siamo', component: ChiSiamoComponent },
   { path: 'ricette_categoria/:categoria', component: RicetteCategoriaComponent },
-  { path: 'ricette-salvate', component: RicetteSalvateComponent }
+  { path: 'ricette-salvate', component: RicetteSalvateComponent },
+  { path: 'ricette-nome', component: RicetteNomeComponent },
 ];
 
 @NgModule({

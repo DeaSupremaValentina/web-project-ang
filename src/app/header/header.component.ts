@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import auth from 'firebase/compat/app';
 import { Utente } from '../model/utente.model';
 import { AuthService } from '../services/auth.service';
+import { RicetteServiceService } from '../services/ricette-service.service';
 
 
 
@@ -22,7 +23,8 @@ isSidebarOpen: boolean = false;
 
   constructor(private afAuth: AngularFireAuth,
               private router: Router,
-              private authService: AuthService) {}
+              private authService: AuthService,
+              private ricetteService: RicetteServiceService) {}
 
   googleAuthProvider = new auth.auth.GoogleAuthProvider();
 
@@ -64,6 +66,13 @@ isSidebarOpen: boolean = false;
     var utente: Utente = {"userCode": user.uid, "tipo": "utente", "email": user.email, "nome": user.displayName};
     console.log('utente', utente.email);
     this.authService.sendUserToBackend(utente);
+}
+
+searchQuery: string = '';
+search(){
+  if(this.searchQuery.trim() !== ''){
+    this.router.navigate(['/ricette-nome/'+this.searchQuery]);
+  }
 }
 
   

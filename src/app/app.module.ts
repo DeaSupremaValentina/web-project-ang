@@ -4,6 +4,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { DettagliRicettaPropostaComponent } from './dettagli-ricetta-proposta/de
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { RicetteCategoriaComponent } from './ricette-categoria/ricette-categoria.component';
 import { RicetteSalvateComponent } from './ricette-salvate/ricette-salvate.component';
+import { RicetteNomeComponent } from './ricette-nome/ricette-nome.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYufQJDxCa1qegd4XeifjVTAIAt5sPsU",
@@ -51,6 +53,7 @@ const firebaseConfig = {
     ChiSiamoComponent,
     RicetteCategoriaComponent,
     RicetteSalvateComponent,
+    RicetteNomeComponent,
     
     
   ],
@@ -62,6 +65,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
 
   ],
   providers: [

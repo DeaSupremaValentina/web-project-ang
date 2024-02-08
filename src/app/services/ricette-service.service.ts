@@ -45,4 +45,8 @@ export class RicetteServiceService {
   accettaRicetta(ricetta: Ricetta): Observable<Ricetta> {
     return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", ricetta);
   }
+
+  searchRicetteByNome(nome: string): Observable<Ricetta[]> {
+    return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_nome/${nome}`);
+  }
 }
