@@ -29,7 +29,7 @@
                 <p><b>{{commenti}}</b></p>
                 <ul>
                 <li *ngFor="let commento of ricetta?.commenti">
-                  <p>{{ commento.username }} dice: {{ commento.contenuto }}</p>
+                  <p><b><i>{{ commento.username }}</i></b> dice: {{ commento.contenuto }}</p>
                 </li>
                 </ul>
             </div>

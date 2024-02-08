@@ -102,7 +102,7 @@ export class DettagliRicettaComponent implements OnInit {
     }
   }
   controlloSalvataggio(){
-    this.ricetteService.dammiRicetteSalvateDaUtente().subscribe(
+    this.ricetteService.dammiRicetteSalvate().subscribe(
       (data: Ricetta[]) => {
         for(let i=0;i<data.length;i++){
           if(data[i].codice==this.idRicetta){
