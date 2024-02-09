@@ -54,7 +54,6 @@ export class DettagliRicettaComponent implements OnInit {
       this.bottone="Salva ricetta";
     }
     else{
-      
       this.bottone="Elimina ricetta salvata";
     }
   }
@@ -132,9 +131,10 @@ export class DettagliRicettaComponent implements OnInit {
     else{
       if(this.commentoNuovo.trim()!==''){ //se il commento non è vuoto
         if(this.ricetta){ //se la ricetta non è undefined
-          this.ricetteService.salvaCommento(this.ricetta,this.commentoNuovo).subscribe(
+          this.ricetteService.salvaCommento(this.ricetta.codice, this.commentoNuovo).subscribe(
             (data) => {
-              console.log(data);
+              this.commentoNuovo = "";
+              this.ngOnInit();
             },
             (error) => {
               console.error(error);
