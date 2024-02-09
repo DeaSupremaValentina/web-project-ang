@@ -13,9 +13,7 @@ export class AuthService {
   private userLogged: boolean = false;
   
   constructor(private http:HttpClient) { }
-  checkAdmin():Observable<string> {
-    return this.http.get<string>(backendUrl+'/tipoUtente');
-  }
+  
 
   sendUserToBackend(utente: Utente) {
     this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
