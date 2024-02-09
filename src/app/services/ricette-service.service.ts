@@ -47,6 +47,7 @@ export class RicetteServiceService {
   }
 
   searchRicetteByNome(nome: string): Observable<Ricetta[]> {
-    return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_nome/${nome}`);
+    console.log(nome)
+    return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_cercate/${nome}`);
   }
 }
