@@ -165,7 +165,7 @@ border-radius: 5px;
 }
 
 .square1 a, .square2 a, .square3 a, .square4 a {
-  display: float;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
