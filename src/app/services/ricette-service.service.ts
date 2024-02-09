@@ -50,4 +50,9 @@ export class RicetteServiceService {
     console.log(nome)
     return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_cercate/${nome}`);
   }
+
+  salvaCommento(ricetta: Ricetta, commentoNuovo: string): Observable<Ricetta> {
+    console.log("dentro il service")
+    return this.http.post<Ricetta>(this.backendUrl+"/salvaCommento", {codice: ricetta.codice, commento: commentoNuovo});
+  }
 }

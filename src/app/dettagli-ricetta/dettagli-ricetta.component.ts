@@ -18,6 +18,7 @@ export class DettagliRicettaComponent implements OnInit {
   ricettaGiaSalvata: boolean = false;
   bottone: string = "Salva Ricetta";
   commenti: string = "Commenti:";
+  commentoNuovo: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -123,5 +124,27 @@ export class DettagliRicettaComponent implements OnInit {
 
   showLoginAlert() {
     alert("Devi effettuare il login prima di poter salvare una ricetta.");
+  }
+  salvaCommento(){
+    if(this.authService.isUserLogged()==false){
+      alert("Devi effettuare il login prima di poter commentare.");
+    }
+    else{
+      if(this.commentoNuovo.trim()!==''){ //se il commento non è vuoto
+        if(this.ricetta){ //se la ricetta non è undefined
+          this.ricetteService.salvaCommento(this.ricetta,this.commentoNuovo).subscribe(
+            (data) => {
+              console.log(data);
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+          //stampa il nuovo commento
+          
+        }
+      }
+    }
+  }
 }
-}
+

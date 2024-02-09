@@ -99,3 +99,29 @@ pre {
     padding: 10px;
     border-radius:  15px;
 }
+
+#commento {
+    clear: both;
+    resize: none;
+    width: 400px;
+    height: 100px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    float: left; 
+}
+
+#buttonCommento {   
+    background-color: #ffd47d;
+    border: 3px solid #ffa527;
+    color: #b97344;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;  /* Aggiunto per dare uno spazio sopra il bottone */
+    margin-left: 10px;
+    margin-right: 100%;
+}

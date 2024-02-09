@@ -27,6 +27,8 @@
             </div>
             <div class="commenti">
                 <p><b>{{commenti}}</b></p>
+                <textarea id="commento" [(ngModel)]="commentoNuovo" placeholder="Inserisci un commento..."></textarea>
+                <button id="buttonCommento" (click)="salvaCommento()">Invia</button><br>
                 <ul>
                 <li *ngFor="let commento of ricetta?.commenti">
                   <p><b><i>{{ commento.username }}</i></b> dice: {{ commento.contenuto }}</p>
