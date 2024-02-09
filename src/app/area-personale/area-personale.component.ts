@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
   styleUrl: '../app.component.css'
 })
 export class AreaPersonaleComponent {
+  tipoUtente: string = '';
   constructor(private authService: AuthService, private router: Router ) {}
 
   checkAdmin() {
     this.authService.checkAdmin().subscribe(
-      (response: string) => {
+      (data) => {
         // Gestisci la risposta ottenuta dalla chiamata HTTP
-        if (response === 'admin') {
+        this.tipoUtente = data;
+        if (data=== 'admin') {
           // L'utente è un amministratore, reindirizzalo alla pagina desiderata
           this.router.navigate(['/ricette-proposte']);
         } else {
