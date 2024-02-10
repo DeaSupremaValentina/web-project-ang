@@ -82,29 +82,24 @@ function inviaRicetta(event) {
     }
   }
 
- function inviaRicettaAlBackend(ricetta) {
+  function inviaRicettaAlBackend(ricetta) {
     console.log('Form inviato con successo');
 
-    fetch('http://localhost:8080/salvaProposta', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(ricetta)
-    })
-    .then(response => {
-        // Gestisci la risposta del backend
-        if (response.ok) {
-            // La richiesta è andata a buon fine
-            console.log('Ricetta inviata con successo al backend');
-            window.location.href = 'http://localhost:4200/area-personale';
-            alert("La tua proposta è stata inviata con successo!");
-        } else {
-            // Gestisci eventuali errori
-            console.error('Errore durante l\'invio della ricetta al backend');
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/salvaProposta', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('Ricetta inviata con successo al backend');
+                window.location.href = 'http://localhost:4200/area-personale';
+                alert("La tua proposta è stata inviata con successo!");
+            } else {
+                console.error('Errore durante l\'invio della ricetta al backend');
+            }
         }
-    })
-    .catch(error => {
-        console.error('Si è verificato un errore:', error);
-    });
+    };
+
+    xhr.send(JSON.stringify(ricetta));
 }
