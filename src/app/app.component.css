@@ -366,3 +366,10 @@ footer{
 .contact-info{
   padding-bottom: 20px;
 }
+
+@media screen and (max-width: 700px) {
+  .search-bar {
+    width: 50%;
+    margin-left: 30%;
+  }
+}
