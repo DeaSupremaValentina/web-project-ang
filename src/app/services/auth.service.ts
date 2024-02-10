@@ -11,13 +11,15 @@ const backendUrl = 'http://localhost:8080';
 })
 export class AuthService {
   private userLogged: boolean = false;
-  
+  private utente: Utente | undefined;
   constructor(private http:HttpClient) { }
   
 
   sendUserToBackend(utente: Utente) {
+    this.utente = utente;
     this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
       (data: any) => {
+        
           console.log('Successo durante l\'invio dell\'utente al backend', data);
       },
       (error:any) => {
@@ -43,6 +45,10 @@ export class AuthService {
 
   isUserLogged() {
     return this.userLogged;
+  }
+
+  getUser() {
+    return this.utente?.userCode;
   }
 }
 

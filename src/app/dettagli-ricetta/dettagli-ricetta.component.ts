@@ -4,6 +4,7 @@ import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
+import { RicettaRequest } from '../model/ricettaRequest';
 
 @Component({
   selector: 'app-dettagli-ricetta',
@@ -19,6 +20,7 @@ export class DettagliRicettaComponent implements OnInit {
   bottone: string = "Salva Ricetta";
   commenti: string = "Commenti:";
   commentoNuovo: string = "";
+  user: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -63,10 +65,15 @@ export class DettagliRicettaComponent implements OnInit {
       this.showLoginAlert();
     }
     else {
-      if(this.ricettaGiaSalvata==false){
+      if (this.ricettaGiaSalvata == false) {
         if (this.ricetta) { //se ricetta non è undefined
-          this.ricettaGiaSalvata=true;
-          this.ricetteService.salvaRicetta(this.ricetta).subscribe(
+          this.ricettaGiaSalvata = true;
+          const uid = this.authService.getUser();
+          const ricettaSalvata: RicettaRequest = {
+            codiceRicetta: this.ricetta.codice,
+            codiceUtente: uid ? uid : ''
+          };
+          this.ricetteService.salvaRicetta(ricettaSalvata).subscribe(
             (data) => {
               console.log(data);
             },
@@ -80,7 +87,12 @@ export class DettagliRicettaComponent implements OnInit {
         //la ricetta va tolta dalle ricette salvate
         if (this.ricetta) { //se ricetta non è undefined
           this.ricettaGiaSalvata=false;
-          this.ricetteService.eliminaRicettaSalvata(this.ricetta).subscribe(
+          const uid = this.authService.getUser();
+          const ricettaSalvata: RicettaRequest = {
+            codiceRicetta: this.ricetta.codice,
+            codiceUtente: uid ? uid : ''
+          };
+          this.ricetteService.eliminaRicettaSalvata(ricettaSalvata).subscribe(
             (data) => {
               console.log(data);
             },
@@ -102,7 +114,8 @@ export class DettagliRicettaComponent implements OnInit {
     }
   }
   controlloSalvataggio(){
-    this.ricetteService.dammiRicetteSalvate().subscribe(
+    this.user = this.authService.getUser() || ''; 
+    this.ricetteService.dammiRicetteSalvate(this.user).subscribe(
       (data: Ricetta[]) => {
         for(let i=0;i<data.length;i++){
           if(data[i].codice==this.idRicetta){

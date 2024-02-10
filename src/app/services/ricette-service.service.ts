@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from  '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from  '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ricetta } from '../model/ricetta';
 import { AuthService } from './auth.service';
+import { RicettaRequest } from '../model/ricettaRequest';
+import { Utente } from '../model/utente.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,15 +33,16 @@ export class RicetteServiceService {
     return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_categoria/${categoria}`);
   }
   
-  salvaRicetta(ricetta: Ricetta): Observable<Ricetta> {
-    return this.http.post<Ricetta>(this.backendUrl+"/salvaRicetta", ricetta.codice);
+  salvaRicetta(request: RicettaRequest): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/salvaRicetta", request);
   }
-  eliminaRicettaSalvata(ricetta: Ricetta): Observable<Ricetta> {
-    return this.http.post<Ricetta>(this.backendUrl+"/rimuoviRicetta", ricetta.codice);
+  eliminaRicettaSalvata(request: RicettaRequest): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/rimuoviRicetta", request);
   }
 
-  dammiRicetteSalvate():Observable<Ricetta[]>{ 
-    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate");
+  dammiRicetteSalvate(utente: string):Observable<Ricetta[]>{ 
+    const params= new HttpParams().set('utente',utente);
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate",{params});
   }
 
   accettaRicetta(ricetta: Ricetta): Observable<Ricetta> {
