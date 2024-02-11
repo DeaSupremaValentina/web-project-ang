@@ -144,7 +144,7 @@ export class DettagliRicettaComponent implements OnInit {
     else{
       if(this.commentoNuovo.trim()!==''){ //se il commento non è vuoto
         if(this.ricetta){ //se la ricetta non è undefined
-          this.ricetteService.salvaCommento(this.ricetta.codice, this.commentoNuovo).subscribe(
+          this.ricetteService.salvaCommento(this.ricetta.codice, this.commentoNuovo,this.user).subscribe(
             (data) => {
               this.commentoNuovo = "";
               this.ngOnInit();

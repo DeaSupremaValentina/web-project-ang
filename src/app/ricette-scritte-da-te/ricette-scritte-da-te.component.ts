@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RicetteServiceService } from '../services/ricette-service.service';
 import { Ricetta } from '../model/ricetta';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-ricette-scritte-da-te',
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class RicetteScritteDaTeComponent {
   ricette: any;
-  constructor(private ricetteService: RicetteServiceService, private router: Router) {
-    this.ricetteService.dammiRicetteScritteDaUtente().subscribe((data) => {
+  utente: string | undefined;
+  constructor(private ricetteService: RicetteServiceService, private router: Router, private auth: AuthService) {
+    this.utente=auth.getUser() || '';
+    this.ricetteService.dammiRicetteScritteDaUtente(this.utente).subscribe((data) => {
       this.ricette = data;
     });
   }

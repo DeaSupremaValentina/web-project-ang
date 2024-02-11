@@ -16,8 +16,9 @@ export class RicetteServiceService {
     return this.http.get<Ricetta[]>(this.backendUrl+"/tutteLeRicette");
   }
 
-  dammiRicetteScritteDaUtente():Observable<Ricetta[]>{
-    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteScritteDaUtente");
+  dammiRicetteScritteDaUtente(utente: string):Observable<Ricetta[]>{
+    const params= new HttpParams().set('utente',utente);
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteScritteDaUtente", {params: params});
   }
 
   getRicettaByID(id: number): Observable<Ricetta> {
@@ -42,18 +43,18 @@ export class RicetteServiceService {
 
   dammiRicetteSalvate(utente: string):Observable<Ricetta[]>{ 
     const params= new HttpParams().set('utente',utente);
-    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate",{params});
+    return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate",{params: params});
   }
 
-  accettaRicetta(ricetta: Ricetta): Observable<Ricetta> {
-    return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", ricetta);
+  accettaRicetta(ricetta: Ricetta, utente:string): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", {ricetta: ricetta, utente: utente});
   }
 
   searchRicetteByNome(nome: string): Observable<Ricetta[]> {
     return this.http.get<Ricetta[]>(`${this.backendUrl}/ricette_cercate/${nome}`);
   }
 
-  salvaCommento(id: number, commentoNuovo: string): Observable<Ricetta> {
-    return this.http.post<any>(this.backendUrl+"/salvaCommento", { id: id, comm: commentoNuovo } );
+  salvaCommento(id: number, commentoNuovo: string, user: string): Observable<Ricetta> {
+    return this.http.post<any>(this.backendUrl+"/salvaCommento", { id: id, comm: commentoNuovo,user: user } );
   }
 }
