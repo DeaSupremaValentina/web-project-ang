@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import {HttpClient, HttpHeaders} from  '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from  '@angular/common/http';
 
 const backendUrl = 'http://localhost:8080';
 @Component({
@@ -12,10 +12,13 @@ const backendUrl = 'http://localhost:8080';
 })
 export class AreaPersonaleComponent {
   tipoUtente: string = '';
+  utente: string | undefined;
   constructor(private authService: AuthService, private router: Router, private http: HttpClient ) {}
 
   checkAdmin() {
-    this.http.get(backendUrl+'/tipoUtente', { responseType: 'text' }).subscribe((data: string) => {
+    this.utente = this.authService.getUser() || '';
+    const params= new HttpParams().set('utente',this.utente);
+    this.http.get(backendUrl+'/tipoUtente', {params:params, responseType: 'text' }).subscribe((data: string) => {
       console.log(data); // Controlla che la stringa ricevuta sia "admin"
       if (data === 'admin') {
         this.router.navigate(['/ricette-proposte']);
