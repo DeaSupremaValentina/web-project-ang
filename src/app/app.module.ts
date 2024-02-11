@@ -5,6 +5,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -70,7 +71,7 @@ const firebaseConfig = {
   ],
   providers: [
     provideClientHydration(),
-
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
