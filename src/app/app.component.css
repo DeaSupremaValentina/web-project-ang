@@ -379,3 +379,13 @@ footer{
     margin-left: 25%;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .menu-list li:hover .submenu {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-list {
+    text-align: center;
+  }
+}
