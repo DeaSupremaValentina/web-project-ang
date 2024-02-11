@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 
 export class DettagliRicettaPropostaComponent implements OnInit{
 
-  idRicetta: any;
+  nomeRicetta: any;
   ricetta: Ricetta | undefined;
   utente: string | undefined;
 
@@ -24,13 +24,13 @@ export class DettagliRicettaPropostaComponent implements OnInit{
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.idRicetta = params['id'];
+      this.nomeRicetta = params['nome'];
       this.loadRicettaDetails();
     });
   }
 
   loadRicettaDetails() {
-    this.ricetteService.getRicettaByID(this.idRicetta).subscribe(
+    this.ricetteService.getRicettaPropostaByNome(this.nomeRicetta).subscribe(
       (data: Ricetta) => {
         this.ricetta = data;
       },

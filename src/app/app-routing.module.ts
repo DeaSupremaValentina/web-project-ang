@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'ricette_id/:id', component: DettagliRicettaComponent },
   { path: 'form-nuova-ricetta', component: FormNuovaRicettaComponent },
   { path: 'ricette-proposte', component: RicetteProposteComponent },
-  { path: 'ricetteproposte_id/:id', component: DettagliRicettaPropostaComponent },
+  { path: 'ricetteproposte_nome/:nome', component: DettagliRicettaPropostaComponent },
   { path: 'chi_siamo', component: ChiSiamoComponent },
   { path: 'ricette_categoria/:categoria', component: RicetteCategoriaComponent },
   { path: 'ricette-salvate', component: RicetteSalvateComponent },

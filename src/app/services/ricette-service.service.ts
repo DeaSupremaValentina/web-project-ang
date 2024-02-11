@@ -58,4 +58,9 @@ export class RicetteServiceService {
   salvaCommento(id: number, commentoNuovo: string, user: string): Observable<Ricetta> {
     return this.http.post<any>(this.backendUrl+"/salvaCommento", { id: id, nuovoCommento: commentoNuovo, user: user } );
   }
+
+  getRicettaPropostaByNome(nome: string): Observable<Ricetta> {
+    const url = `${this.backendUrl}/ricette_id/${nome}`;
+    return this.http.get<Ricetta>(url);
+  }
 }
