@@ -18,6 +18,10 @@ margin-bottom: 0;
   border-radius: 5px;
   
 }
+.menu-list:hover {
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
 
 .menu-list li {
  
@@ -36,6 +40,7 @@ margin-bottom: 0;
   top: 100%; /* Aggiungi questa linea per posizionare il menu a discesa sotto l'elemento padre */
   white-space: nowrap; /* Evita il riavvolgimento del testo nel menu a discesa */
   border-radius: 5px;
+  border-top-left-radius: 0%;
 }
 
 .menu-list li:hover .submenu {
@@ -99,6 +104,7 @@ color: black; /* Aggiungi il colore desiderato per il testo del bottone di ricer
 cursor: pointer;
 border: 1px solid black;
 border-radius: 5px;
+margin-right: 20px;
 }
 
 /* Stili per il login */
@@ -369,7 +375,19 @@ footer{
 
 @media screen and (max-width: 700px) {
   .search-bar {
-    width: 50%;
-    margin-left: 30%;
+    margin-left: 25%;
+  }
+  .logo {
+    margin-right: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .menu-list li:hover .submenu {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-list {
+    text-align: center;
   }
 }
