@@ -49,7 +49,7 @@ isSidebarOpen: boolean = false;
     const user = this.afAuth.currentUser;
     console.log('user disconnesso', user);
     this.authService.setUserLogged(false);
-    this.authService.notifyLogout();
+    
     this.router.navigate(['/home']);
 
   }

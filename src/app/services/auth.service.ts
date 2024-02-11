@@ -28,17 +28,6 @@ export class AuthService {
   );
   }
 
-  notifyLogout(){
-    this.http.post(backendUrl + '/logout', "logout").subscribe(
-      (data: any) => {
-          console.log('Successo durante il logout', data);
-      },
-      (error:any) => {
-          console.error('Errore durante il logout', error);
-      }
-  );
-  }
-
   setUserLogged(userLogged: boolean) {
     this.userLogged = userLogged;
   }
