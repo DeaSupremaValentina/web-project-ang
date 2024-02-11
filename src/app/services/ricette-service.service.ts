@@ -42,6 +42,7 @@ export class RicetteServiceService {
   }
 
   dammiRicetteSalvate(utente: string):Observable<Ricetta[]>{ 
+    console.log("utente",utente);
     const params= new HttpParams().set('utente',utente);
     return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate",{params: params});
   }

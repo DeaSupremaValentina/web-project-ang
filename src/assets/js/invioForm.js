@@ -56,6 +56,8 @@ function inviaRicetta(event) {
     if (errorMessage !== '') {
       alert(errorMessage);
     } else {
+
+      var utente= authService.getUser();
       
       var ricettaProposta = {
         codiceRicetta: 0,
@@ -70,19 +72,21 @@ function inviaRicetta(event) {
         costo: costo,
         linkYoutube: 'linkYoutube',
         linkSpotify: linkSpotify,
-        autore: 'autore',
+        autore: utente,
         pathImmagine: 'pathImmagine',
         tag1: 'tag1',
         tag2: 'tag2',
 
       };
 
+      
+
       inviaRicettaAlBackend(ricettaProposta);
 
     }
   }
 
-  function inviaRicettaAlBackend(ricetta) {
+  function inviaRicettaAlBackend(ricetta, utente) {
     console.log('Form inviato con successo');
 
     var xhr = new XMLHttpRequest();
