@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Ricetta } from '../model/ricetta';
 import { HeaderComponent } from '../header/header.component';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-form-nuova-ricetta',
   templateUrl: './form-nuova-ricetta.component.html',
@@ -10,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class FormNuovaRicettaComponent {
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   
 
