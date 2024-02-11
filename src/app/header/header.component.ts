@@ -72,6 +72,7 @@ searchQuery: string = '';
 search(){
   if(this.searchQuery.trim() !== ''){
     this.router.navigate(['/ricette-nome/'+ this.searchQuery]);
+    this.searchQuery = '';
   }
 }
 

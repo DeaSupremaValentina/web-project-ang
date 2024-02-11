@@ -43,3 +43,29 @@
     color: #471814;
     font-weight: bold;
 }
+
+@media screen and (max-width: 700px) {
+    #immagine-base64 {
+        width: 128px;
+        height: 128px;
+    }
+    .card {
+        height: auto;
+        overflow: auto;
+    }
+    .descrizione_box {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .nomeRicetta {
+        max-width: 350px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .categoria {
+        display: none;
+    }
+}
