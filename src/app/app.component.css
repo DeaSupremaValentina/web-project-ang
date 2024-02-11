@@ -375,8 +375,10 @@ footer{
 
 @media screen and (max-width: 700px) {
   .search-bar {
-    width: 95%;
     margin-left: 25%;
+  }
+  .logo {
+    margin-right: 100%;
   }
 }
 

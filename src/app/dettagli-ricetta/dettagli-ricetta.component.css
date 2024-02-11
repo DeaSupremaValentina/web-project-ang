@@ -125,3 +125,18 @@ pre {
     margin-left: 10px;
     margin-right: 100%;
 }
+
+@media screen and (max-width: 800px){
+    #immagine-base64{
+        width: 256px;
+        height: 256px;
+    }
+    #spotify {
+        width: 512px;
+        height: 512px;
+    }
+    #youtube {
+        width: 256px;
+        height: 256px;
+    }
+}
