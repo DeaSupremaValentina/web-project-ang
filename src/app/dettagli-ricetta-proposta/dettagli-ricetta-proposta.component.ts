@@ -43,8 +43,8 @@ export class DettagliRicettaPropostaComponent implements OnInit{
 
   accettaProposta() {
     if (this.ricetta) {
-      this.utente=this.auth.getUser() || '';
-      this.ricetteService.accettaRicetta(this.ricetta, this.utente).subscribe(
+      
+      this.ricetteService.accettaRicetta(this.ricetta).subscribe(
         (data: Ricetta) => {
           this.ricetta = data;
         },

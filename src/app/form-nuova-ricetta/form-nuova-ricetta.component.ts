@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Ricetta } from '../model/ricetta';
 import { HeaderComponent } from '../header/header.component';
-import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-form-nuova-ricetta',
   templateUrl: './form-nuova-ricetta.component.html',
@@ -11,10 +11,9 @@ import { AuthService } from '../services/auth.service';
 })
 export class FormNuovaRicettaComponent {
 
-  utente: string | undefined;
-  constructor(private http: HttpClient, private authService: AuthService) {
-    this.utente = this.authService.getUser() || '';
-    console.log(this.utente);
+  
+  constructor(private http: HttpClient) {
+    
   }
 }
 

@@ -47,8 +47,8 @@ export class RicetteServiceService {
     return this.http.get<Ricetta[]>(this.backendUrl+"/ricetteSalvate",{params: params});
   }
 
-  accettaRicetta(ricetta: Ricetta, utente:string): Observable<Ricetta> {
-    return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", {ricetta: ricetta, utente: utente});
+  accettaRicetta(ricetta: Ricetta): Observable<Ricetta> {
+    return this.http.post<Ricetta>(this.backendUrl+"/approvaProposta", ricetta);
   }
 
   searchRicetteByNome(nome: string): Observable<Ricetta[]> {

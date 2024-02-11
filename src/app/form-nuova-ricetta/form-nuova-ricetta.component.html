@@ -5,7 +5,7 @@
   <p>Compila il form per inviare una nuova ricetta</p>
   
 
-<form id="ricettaForm" onsubmit="event.preventDefault(); inviaRicetta(event, utente);">
+<form id="ricettaForm" onsubmit="event.preventDefault(); inviaRicetta(event);">
 
   <div class="row">
     <div class="col-xs-12 col-sm-12">
@@ -95,6 +95,15 @@
       <div class="form-group">
         <label for="linkSpotify">Link Spotify (Non obbligatorio):</label>
         <input type="text" class="form-control" id="linkSpotify" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <div class="form-group">
+        <label for="autore">Email (si prega di inserire l'e-mail con cui si è fatto il login):</label>
+        <input type="text" class="form-control" id="autore">
       </div>
     </div>
   </div>

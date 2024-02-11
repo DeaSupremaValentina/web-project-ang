@@ -1,4 +1,4 @@
-function inviaRicetta(event, utente) {
+function inviaRicetta(event) {
     event.preventDefault();
     console.log('Pulsante partito');
 
@@ -53,6 +53,10 @@ function inviaRicetta(event, utente) {
     if (linkSpotify.trim() === '') {
       linkSpotify = 'Nessun link';
     }
+    var autore= document.getElementById('autore').value;
+    if (autore.trim() === '') {
+      errorMessage += 'Inserisci l\'email.\n';
+    }
 
 
     if (errorMessage !== '') {
@@ -74,7 +78,7 @@ function inviaRicetta(event, utente) {
         costo: costo,
         linkYoutube: 'linkYoutube',
         linkSpotify: linkSpotify,
-        autore: utente,
+        autore: autore,
         pathImmagine: 'pathImmagine',
         tag1: 'tag1',
         tag2: 'tag2',

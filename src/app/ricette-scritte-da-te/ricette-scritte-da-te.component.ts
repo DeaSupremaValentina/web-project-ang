@@ -14,7 +14,6 @@ export class RicetteScritteDaTeComponent {
   utente: string | undefined;
   constructor(private ricetteService: RicetteServiceService, private router: Router, private auth: AuthService) {
     this.utente=auth.getUser() || '';
-    console.log(this.utente);
     this.ricetteService.dammiRicetteScritteDaUtente(this.utente).subscribe((data) => {
       this.ricette = data;
     });
