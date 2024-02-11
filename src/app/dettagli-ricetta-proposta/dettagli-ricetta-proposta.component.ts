@@ -25,6 +25,7 @@ export class DettagliRicettaPropostaComponent implements OnInit{
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.nomeRicetta = params['nome'];
+      console.log(this.nomeRicetta);
       this.loadRicettaDetails();
     });
   }

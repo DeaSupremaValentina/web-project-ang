@@ -60,7 +60,7 @@ export class RicetteServiceService {
   }
 
   getRicettaPropostaByNome(nome: string): Observable<Ricetta> {
-    const url = `${this.backendUrl}/ricette_id/${nome}`;
+    const url = `${this.backendUrl}/ricettaDaApprovare/${nome}`;
     return this.http.get<Ricetta>(url);
   }
 }
