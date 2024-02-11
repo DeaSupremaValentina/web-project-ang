@@ -56,6 +56,7 @@ export class RicetteServiceService {
   }
 
   salvaCommento(id: number, commentoNuovo: string, user: string): Observable<Ricetta> {
+    
     return this.http.post<any>(this.backendUrl+"/salvaCommento", { id: id, comm: commentoNuovo,user: user } );
   }
 }

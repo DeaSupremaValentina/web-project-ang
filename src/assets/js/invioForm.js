@@ -2,6 +2,8 @@ function inviaRicetta(event, utente) {
     event.preventDefault();
     console.log('Pulsante partito');
 
+    
+
     var form = document.getElementById('ricettaForm');
 
     var nomeRicetta = document.getElementById('nomeRicetta').value;
@@ -86,7 +88,7 @@ function inviaRicetta(event, utente) {
     }
   }
 
-  function inviaRicettaAlBackend(ricetta, utente) {
+  function inviaRicettaAlBackend(ricetta) {
     console.log('Form inviato con successo');
 
     var xhr = new XMLHttpRequest();

@@ -10,12 +10,12 @@ import { AuthService } from '../services/auth.service';
   styleUrl: '../app.component.css'
 })
 export class FormNuovaRicettaComponent {
-  
-  constructor(private http: HttpClient, private authService: AuthService) {}
 
-  
-
-
+  utente: string | undefined;
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.utente = this.authService.getUser() || '';
+    console.log(this.utente);
+  }
 }
 
 

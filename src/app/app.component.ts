@@ -7,7 +7,6 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(private auth: AuthService) { }
   title = 'web-project-ang';
   showSidebar = false;
 

@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat'; 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -64,14 +63,18 @@ const firebaseConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    
+    
 
   ],
   providers: [
     provideClientHydration(),
-    AuthService,
+   
+   
   ],
   bootstrap: [AppComponent]
 })
