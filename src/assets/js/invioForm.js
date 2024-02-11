@@ -1,4 +1,4 @@
-function inviaRicetta(event) {
+function inviaRicetta(event, utente) {
     event.preventDefault();
     console.log('Pulsante partito');
 
@@ -57,7 +57,7 @@ function inviaRicetta(event) {
       alert(errorMessage);
     } else {
 
-      var utente= authService.getUser();
+      
       
       var ricettaProposta = {
         codiceRicetta: 0,

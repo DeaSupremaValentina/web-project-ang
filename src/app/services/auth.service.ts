@@ -14,7 +14,7 @@ export class AuthService {
   private utente: Utente | undefined;
   constructor(private http:HttpClient) { }
   
-
+  
   sendUserToBackend(utente: Utente) {
     this.utente = utente;
     this.http.post<Utente>(backendUrl + '/login', utente).subscribe(
@@ -51,4 +51,5 @@ export class AuthService {
     return this.utente?.userCode;
   }
 }
+
 
